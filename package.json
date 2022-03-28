@@ -1,0 +1,15 @@
+{
+  "name": "octopus-doc",
+  "version": "1.0.0",
+  "description": "octopus doc",
+  "main": "index.js",
+  "author": "renran",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "vuepress": "^1.7.1"
+  }
+}
