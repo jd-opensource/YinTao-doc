@@ -1,7 +1,7 @@
 ---
   home: true
   heroImage: strawberry.ico
-  heroText: cherry-driver
+  heroText: cherry
   tagline: WEB--UI高级智能自动化驱动引擎
   actionText: 了解更多 →
   actionLink: /guide/introduce/introduce

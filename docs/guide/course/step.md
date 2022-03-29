@@ -1,11 +1,11 @@
 # 安装说明
 
 ## Windows安装
-跳转至<a href="/cherry_driver/guide/introduce/download.html">下载</a>页面，点击`WIN下载`按钮，等待下载完成后，逐一点击下一步直至安装完成。
+跳转至<a href="/cherry/guide/introduce/download.html">下载</a>页面，点击`WIN下载`按钮，等待下载完成后，逐一点击下一步直至安装完成。
 ## Mac安装
-跳转至<a href="/cherry_driver/guide/introduce/download.html">下载</a>页面，点击`MAC下载`按钮，等待下载完成后，拖动cherry-drive.app进Applications即可。
+跳转至<a href="/cherry/guide/introduce/download.html">下载</a>页面，点击`MAC下载`按钮，等待下载完成后，拖动cherry-drive.app进Applications即可。
 ### 安装成功校验
-- 打开桌面cherry-driver应用，然后打开浏览器，地址栏输入：`http://localhost:8777/ping`
+- 打开桌面cherry应用，然后打开浏览器，地址栏输入：`http://localhost:8777/ping`
 - 返回`{"ok":1}`即代表安装成功
 
 ### 安装问题说明

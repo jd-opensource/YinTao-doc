@@ -6,7 +6,7 @@
 - Body选择raw，格式选择JSON，内容输入如下
 ```js
 {
-    "script": "await openBrowser('http://www.baidu.com')",
+    "script": "await openBrowser('https://www.baidu.com')",
     "debug": false,
     "clear": false,
     "storage": "123",
@@ -22,7 +22,7 @@
 - 点击上图的Send按钮，打开chrome浏览器后，即可进行脚本的录制工作。
 - 录制完成后，生成的脚步代码在Response的Body内，见上图。
 ### 执行脚本
-- 打开postman，创建post请求，地址栏输入：`http://localhost:8777/runScript`
+- 打开postman，创建post请求，地址栏输入：`http://localhost:8777/run`
 - Body选择raw，格式选择JSON，内容输入如下
 ```js
 {

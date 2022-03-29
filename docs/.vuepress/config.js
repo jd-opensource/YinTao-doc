@@ -1,52 +1,85 @@
 module.exports = {
-  title: "Cherry-driver 中文文档",
+  title: "cherry 中文文档",
   description: "Just playing around",
   head: [
-    ['link', { rel: 'shortcut icon', type: "image/x-icon", href: '../../strawberry.ico'}]
+    ['link', {
+      rel: 'shortcut icon',
+      type: "image/x-icon",
+      href: '../../strawberry.ico'
+    }]
   ],
-  base:"/cherry_driver/",
+  base: "/cherry/",
   plugins: [],
   themeConfig: {
     // 添加导航栏
-    nav: [
-      { text: "主页", link: "/" },
-      { text: "指南", link: "/guide/introduce/introduce" },
+    nav: [{
+        text: "主页",
+        link: "/"
+      },
+      {
+        text: "指南",
+        link: "/guide/introduce/introduce"
+      },
       {
         text: "相关服务",
-        items: [
-          { text: "octopus", link: "https://dqa.jd.com/octopus/" },
-        ]
+        items: [{
+          text: "dqa",
+          link: "https://dqa.jd.com"
+        }, ]
       }
     ],
     // 为以下路由添加左侧边栏
     sidebar: {
-      "/guide/": [
-        {
+      "/guide/": [{
           title: "简介",
           collapsable: false,
           path: "/guide/introduce/introduce",
-          children: [
-            { title: "简介", path: "/guide/introduce/introduce" },
-            { title: "下载", path: "/guide/introduce/download" },
+          children: [{
+              title: "简介",
+              path: "/guide/introduce/introduce"
+            },
+            {
+              title: "下载",
+              path: "/guide/introduce/download"
+            },
           ]
         },
-        {
-          title: "架构设计",
-          collapsable: false,
-          path: "/guide/api/use",
-          children: [
-            { title: "运行架构", path: "/guide/api/use" },
-            { title: "开发架构", path: "/guide/api/func" }
-          ]
-        },
+        // {
+        //   title: "架构设计",
+        //   collapsable: false,
+        //   path: "/guide/api/use",
+        //   children: [{
+        //       title: "运行架构",
+        //       path: "/guide/api/use"
+        //     },
+        //     {
+        //       title: "开发架构",
+        //       path: "/guide/api/func"
+        //     }
+        //   ]
+        // },
         {
           title: "api",
           collapsable: false,
           path: "/guide/api/use",
-          children: [
-            { title: "api", path: "/guide/api/api" },
-            { title: "指令", path: "/guide/api/instruct" },
-            { title: "api结构", path: "/guide/api/apistruct"}
+          children: [{
+              title: "开放api",
+              path: "/guide/api/api",
+              children: [
+                {
+                  title:"http",
+                  path:"/guide/api/httpApi"
+                },
+                {
+                  title:"websockt",
+                  path: "/guide/api/wsApi"
+                }
+              ]
+            },
+            {
+              title: "指令",
+              path: "/guide/api/instruct"
+            },
           ]
         },
         {
@@ -54,33 +87,68 @@ module.exports = {
           collapsable: false,
           path: "/guide/ex/ex1",
           children: [
-            { title: "实现原理", path: "/guide/ex/ex1" },
-            { title: "特性", path: "/guide/ex/ex2" },
+            // {
+            //   title: "实现原理",
+            //   path: "/guide/ex/ex1"
+            // },
+            {
+              title: "特性",
+              path: "/guide/ex/ex2"
+            },
           ]
         },
         {
           title: "起步",
           collapsable: false,
           path: "/guide/course/step",
-          children: [
-            { title: "安装说明", path: "/guide/course/step"},
-            { title: "使用说明", path: "/guide/course/use"}
+          children: [{
+              title: "安装说明",
+              path: "/guide/course/step"
+            },
+            {
+              title: "使用说明",
+              path: "/guide/course/use"
+            }
           ]
         },
         {
           title: "使用示例",
           collapsable: false,
           path: "/guide/examples/addAndDel",
-          children: [
-            { title: "web接入", path: "/guide/examples/web_call" },
-            { title: "新增和删除数据", path: "/guide/examples/addAndDel" },
-            { title: "日期控件", path:"/guide/examples/modifyDate"},
-            { title: "浏览器调试模式", path:"/guide/examples/devTools"}
+          children: [{
+              title: "基础功能操作",
+              path: "/guide/examples/baseOpt"
+            },
+            {
+              title: "H5测试支持",
+              path: "/guide/examples/mobile"
+            },
+            {
+              title: "日期控件",
+              path: "/guide/examples/modifyDate"
+            },
+            {
+              title: "接口数据测试",
+              path: "/guide/examples/apiHook"
+            }
+          ]
+        },
+        {
+          title: "数据结构",
+          collapsable: true,
+          children: [{
+              title: "错误码",
+              path: "/guide/data/errorCode"
+            },
+            {
+              title: "keyCode",
+              path: "/guide/data/keyCode"
+            },
           ]
         },
       ]
     },
-    
+
     sidebarDepth: 3, //左侧导航显示的层级
     lastUpdated: "Last Updated"
   }

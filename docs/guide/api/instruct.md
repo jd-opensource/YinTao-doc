@@ -1,43 +1,10 @@
 # 指令
 
 ## 说明
-  脚本指令通过`javaScript`解析，理论上支持`javaScript`所有语法。原始脚本执行环境在主进程当中并不和浏览器互通。
-  `execJavaScript`执行环境为当前控制的浏览器页面。运行采用单一事件流，你只能控制当前的页面，如果需要控制其他页面必须进行切换。
-  
-## setDeviceEmulation()
-  说明: 设置浏览器的模拟设备
-
-  参数:
-  
-  | 名称        | 类型   |  默认值  | 说明  |
-  | --------   | --------  | --------  |  -------- |
-  | screenPosition| string | desktop|  指定要模拟的屏幕类型,可选desktop\mobile|
-  | screenSize | object |  空   |屏幕大小,screenPosition为mobile时启用,{width:Number,height:Number}|
-  | viewPosition| object|  空   |屏幕定位,screenPosition为mobile时启用,{x:Number,y:Number}|
-  | deviceScaleFactor| int |  0   | 设备比例系数    |
-  | viewSize| object|空| 模拟屏幕视图大小,{width:Number,height:Number}|
-  | scale| float | 1  |  模拟视图的比例  |
-
-   请求示例:
-```js
-  await setDeviceEmulation({
-    screenPosition: 'mobile',
-    screenSize: {
-      width: 1024,
-      height: 1920
-    },
-    viewPosition: {
-      x: 500,
-      y: 600
-    },
-    deviceScaleFactor: 0,
-    viewSize: {
-      width: 1024,
-      height: 1920
-    },
-    scale: 1
-  })
-```
+  cherry 执行时主要通过解析指令代码执行, 这些内部指令在运行时以被预注册的js函数所替代,这意味着未知的指令无法得到正确的解析。
+  同时我们可以使用原生js进行逻辑编写。部分指令生效会有一些限制，这取决于不同页面之间的上下文差异，cherry对这些工作进行了简化。
+  执行时只存在一套上下文，即当前控制的页面。多页面直接操作必须进行手动切换(不建议使用多页面)。
+  注意: `execJavaScript`执行环境仅为当前控制的浏览器页面,而原生的js将在node侧执行。
 
 ## cookies(type,details:object)
   说明: 设置所有cookies
@@ -47,13 +14,17 @@
   | --------   | --------  | --------  |  -------- |
   | url        | string |  空     |必填，与cookie相关联的url|
   | value       | string |  空     |必填，cookie值|
-   请求示例:
+  示例:
   ```js
   await cookies("setAll","https://www.baidu.com/","jZ0bGJpeXR3")
   ```
+
+
   说明: 设置单个cookies 
 
-  type: "set",details参数:
+  type: "set"
+  
+  details参数:
   | 名称        | 类型   |  默认值  | 说明  |
   | --------   | --------  | --------  |  -------- |
   | url        | string |  空     |必填，与cookie相关联的url|
@@ -66,9 +37,8 @@
   | expirationDate|double| 空  |选填，cookie的到期日期，表示自UNIX纪元以来的秒数|
   | sameSite   | boolean|no_restriction|选填，应用于此cookie的相同站点策略,可选：unspecified,no_restriction,lax,strict|
 
-  请求示例:
+  示例:
   ```js
-  await sleep(2000); 
   await cookies("set",{
     "url": "https://www.baidu.com/",
     "name": "BDUSS",
@@ -76,30 +46,15 @@
     "domain": ".baidu.com"
   })
   ```
-  说明: 移除cookies 
-  
-  type: "remove",details参数：
-  | 名称        | 类型   |  默认值  | 说明  |
-  | --------   | --------  | --------  |  -------- |
-  | url        | string |  空     |必填，与cookie相关联的url|
-  | name       | string |  空     |必填，cookie的名称|
-   请求示例:
+  说明: 清除所有cookie
+
+  一般不需要使用，运行时会创建干净的环境，不包含如何cookie。
+
   ```js
-  await cookies("remove",{
-    "url": "https://www.baidu.com/",
-    "name": "百度"
-  })
+  await clearCookie()
   ```
 
 ## dom
-
-### dom.get(sign)
-  
-  绑定当前操作的`dom` 并设置为操作`dom`,通常跟随`click`或`set`, 其中参数`sign`支持传递元素的`css选择器`、`xpath`、`id`。
-
-  ``` js
-  await dom.get('#id')
-  ```
 
 ### dom.exist(sign): boolean
   
@@ -108,19 +63,9 @@
   ``` js
   await dom.exist('#id')
   ```
-
-### dom.getByText(text,index)
-
-  绑定当前操作的`dom` 并设置为操作`dom`。
-  text: 要寻找的文本的元素
-  index: 如果有多个需要传递索引表示第几个,从0开始0标识第一个。
-
-  ``` js
-  await dom.getByText('百度一下',0)
-  ```
 ### dom.wait(sign,ms)
   
-  等待元素出现，默认等待最大时间为10s,如果10s内还未出现则保持，元素出现则立即执行之后的命令。
+  等待元素出现，默认等待最大时间为10s,如果10s内还未出现则抛出错误，元素出现后执行后续命令。
 
   `ms`: 单位毫秒，设置最长等待时间
 
@@ -137,40 +82,25 @@
   await dom.click()
   ```
   
-### dom.set(value)
+### dom.fill(sign, value)
+  对元素进行输入操作，功能和set类型。
+
+  ``` js
+  await dom.fill("#id",'hello word!')
+  ```
+
+### dom.set(value) -- 建议使用dom.fill
   对当前操作的元素执行赋值操作, 元素必须是可赋值的类型, 如input类型。
 
   ``` js
   await dom.set('hello word!')
   ```
-
-### dom.reSet(value)
-  对当前操作的元素执行赋值操作, 元素必须是可赋值的类型, 如input类型。
-  赋值时会清空之前内容，该操作等同于 clear + set
-
-  ``` js
-  await dom.reSet('hello word!')
-  ```
-
-### dom.clear()
-  清空输入框内容，清空的内容为当前操作的input元素。
-  ``` js
-  await dom.clear()
-  ```
-
 ### dom.upload(id,filePath)
   上传文件, 控制input file 自动上传文件，需要传递input框的唯一id, 以及本地文件路径。
   ``` js
-  await dom.upload('#cherry','D:\\cherry.txt') // 将cherry.txt上传到当前页面id="cherry"的层级当中
+  await dom.upload('#cherry','https://storage.360buyimg.com/assert/zi.jpg') // 上传远程文件
   await dom.upload('#cherry','D:/cherry.txt') // 注意文件路径中使用\\或/，避免编码错误
-  ```
-### dom.selectText(start,end)
-  选择input文本,或移动光标位置.
-
-   ``` js
-  await dom.selectText(-1) // 全选当前input的内容
-  await dom.selectText(2,2) // 将光标移动到第二个字节后
-  await dom.selectText(2,4) // 选中2-4字节中间的内容 
+  await dom.upload('#cherry','D:/cherry.txt') // 注意文件路径中使用\\或/，避免编码错误
   ```
 
 ### dom.getAttributes(name)
@@ -181,15 +111,14 @@
   var className =  await dom.getAttributes('className') // 获取当前操作dom的calss名称
   ```
 
-### dom.lineKeyOperation(key,rowKey,optKey)
+<!-- ### dom.lineKeyOperation(key,rowKey,optKey)
   根据关键字[key]和行标识[rowKey]找到目标行，并对行内目标[optKey]进行点击操作。
   key:只支持元素内的纯文本。
   rowKey:只支持行标识的class属性名。
   optKey：支持操作目标元素内的纯文本或XPath或CSS选择器。
   ``` js
   await dom.lineKeyOperation('计划名称','el-table__row','删除') # 删除指定行
-   ```
-
+   ``` -->
 
 ### dom.hover(sign)
   鼠标悬浮操作, 其中参数`sign`支持传递元素的`css选择器`、`xpath`、`id`。
@@ -197,23 +126,48 @@
   await dom.hover('#id') # 根据id定位元素，鼠标悬浮显示
    ```
 
+## browser
+
+### browser.on(event:'request'| 'requestfaile' | 'requestfinished' | 'response',callback:Function)
+监听浏览器事件
+``` js
+await browser.on('request',(res)=>{
+    // 监听页面请求
+    console.log('url',res._initializer.url)
+})
+```
+
+### browser.route(url: string|RegExp,handler: ((route: Route, request: Request) => void), options?: {times?: number;})
+修改浏览器接口内容
+``` js
+// 修改页面的png图片为自定义图片
+await browser.route('**/*.{png}',(route)=>{
+    console.log('route',route)
+    route.continue({url:'http://storage.360buyimg.com/assert/icon.png'});
+})
+```
+
 ## page
-### page.create(url:string,partition:string)
-  创建新页面打开网页, 传入标准的`url`格式,`partition`绑定session标识，可任意命名。
+
+### page.setDevice(name:string)
+设置页面设备模拟, 注意需要在页面创建前设置，否则只在之后创建的页面生效.
+
+[更多可用设备名称](https://coding.jd.com/cherry/core/blob/master/src/server/deviceDescriptorsSource.json)
+
   ``` js
-  await page.create('http://www.baidu.com','abc') // cookie为已登录状态
-  await sleep(3000)
-  await cookies("set",{url:'https://www.baidu.com',name:'BDUSS',value:'ZxhT',domain:'.baidu.com'})
-  await sleep(3000)
-  await page.create('http://www.baidu.com') // 未登录状态
+  await page.setDevice('iPhone 11') // 模拟iPhone 11 访问
+  ```
+### page.create(url:string)
+  创建新页面打开网页, 传入标准的`url`格式
+  ``` js
+  await page.create('https://www.baidu.com') // 打开百度页面
   ```
 
 ### page.to(url)
-
   切换当前页面的url,支持传入标准的`url`格式。
 
   ``` js
-  await page.to('http://www.baidu.com')
+  await page.to('https://www.baidu.com')
   ```
 
 ### page.getURL()
@@ -242,14 +196,14 @@
   await page.refresh() 
   ```
 
-### page.delete(index)
+<!-- ### page.close(index)
   
   按索引删除删除关闭页面从0开始，如删除第一个页面则为`deletePage(0)`,
   当页面全部关闭时则会自动退出浏览器。
 
   ``` js
-  await page.delete(0)
-  ```
+  await page.close(0)
+  ``` -->
 
 ### page.change(index)
   切换当前控制的页面, 1表示第一个。
@@ -258,6 +212,7 @@
   ``` js
   await page.change(1)
   ```
+
 ### page.changeIframe(index)
   切换当前控制的iframe, 0表示当前页面内第一个iframe, -1 表示退出iframe, 默认不会进入iframe内。
   ``` js
@@ -271,22 +226,22 @@
   ```
 
 ## keyboard
-### keyboard.press(<a href="/cherry_driver/guide/api/apistruct.html">keyCode</a>)
+### keyboard.press(<a href="/cherry/guide/api/apistruct.html">keyCode</a>)
   模拟点击键盘。
   ``` js
   await keyboard.press('KeyA')  // 模拟点击键盘a键
   ```
-### keyboard.down(<a href="/cherry_driver/guide/api/apistruct.html">keyCode</a>)
+### keyboard.down(<a href="/cherry/guide/api/apistruct.html">keyCode</a>)
   模拟按下键盘。
   ``` js
   await keyboard.down('ControlLeft')  // 模拟按下
   ```
-### keyboard.up(<a href="/cherry_driver/guide/api/apistruct.html">keyCode</a>)
+### keyboard.up(<a href="/cherry/guide/api/apistruct.html">keyCode</a>)
   模拟抬起键盘。
   ``` js
   await keyboard.up('ControlLeft')  // 模拟键盘抬起
   ```
-### keyboard.type(<a href="/cherry_driver/guide/api/apistruct.html">keyCode</a>)
+### keyboard.type(<a href="/cherry/guide/api/apistruct.html">keyCode</a>)
   模拟键盘输入。
   ``` js
   await keyboard.type('hello word')  // 模拟输入,等同于使用 await set()
@@ -349,12 +304,6 @@
   await assert.location('https://www.baidu.com/') //判断当前页面的url值与传参是否一致
   ```
 
-## openBrowser(url) 
-  打开浏览器页面, 兼容旧版, 推荐使用`createPage`来代替。
-  ``` js
-  openBrowser('http://www.baidu.com')
-  ```
-
 ## execJavaScript(script)
   执行指定`JavaScript`脚本, 这里执行脚本将在页面环境内执行，并且锁定在当前操作的页面对象中或`iframe`中。
   ``` js
@@ -373,43 +322,8 @@
   ``` js
   await hint('成功提示的文案','success') 
   ```
-
-## getDoms(sign,index)
-  获取`dom`下第`index`个`sign`元素
-  `sign`:元素标记，用于查找定位元素,支持传递元素的`css选择器`、`xpath`、`id`
-  `index`:从0开始，表示第1个`sign`
-  ``` js
-  await getDoms('#id',0) //获取第1个id
-  ```
-
-## openDevTools()
-  打开调试模式
-  ```js
-  await openDevTools()
-  ```
-
-## closeDevTools()
-  关闭调试模式
-  ```js
-  await closeDevTools()
-  ```
-
-## log(level:LoggerLevel,text:string)
-  写入日志文件，level可选: debug | info | warn | error，text: 日志信息
-  ```js
-  await log("error","检查一下，报错了！")
-  ```
-
 ## clearCookie()
   清除Cookie
   ```js
   await clearCookie()
   ```
-
-  ## clipboards(type,text)
-  剪切板: 写信息/读信息
-  ```js
-  await clipboards(`writeText`,`nihao`) //剪切板写入nihao
-  await clipboards(`readText`) //剪切板读取写入的信息：nihao
-  ```
-
