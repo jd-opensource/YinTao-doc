@@ -38,12 +38,15 @@
   | sameSite   | boolean|no_restriction|选填，应用于此cookie的相同站点策略,可选：unspecified,no_restriction,lax,strict|
 
   注意: 新版不允许同时设置url和domain, 设置url后会自动生成对应的domian.
+  
+  如果你要设置单个cookie更推荐使用`domain` + `path` 设置, 而非`url`
 
   示例:
   ```js
   await cookies("set",[{
-    "url": "https://www.baidu.com/",
+    "domian": ".jd.com",
     "name": "BDUSS",
+    "path": "/",
     "value": "jZ0bGJpeXR3Z1FCeWRPclJ1LTRtOUI2YWR6fkpXfmxKSDU1Sk5LS3htS3dDS3RoRUFBQUFBJ",
   }])
   ```
