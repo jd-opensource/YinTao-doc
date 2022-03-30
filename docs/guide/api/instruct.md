@@ -37,14 +37,15 @@
   | expirationDate|double| 空  |选填，cookie的到期日期，表示自UNIX纪元以来的秒数|
   | sameSite   | boolean|no_restriction|选填，应用于此cookie的相同站点策略,可选：unspecified,no_restriction,lax,strict|
 
+  注意: 新版不允许同时设置url和domain, 设置url后会自动生成对应的domian.
+
   示例:
   ```js
-  await cookies("set",{
+  await cookies("set",[{
     "url": "https://www.baidu.com/",
     "name": "BDUSS",
     "value": "jZ0bGJpeXR3Z1FCeWRPclJ1LTRtOUI2YWR6fkpXfmxKSDU1Sk5LS3htS3dDS3RoRUFBQUFBJ",
-    "domain": ".baidu.com"
-  })
+  }])
   ```
   说明: 清除所有cookie
 
