@@ -93,11 +93,12 @@
   await dom.fill("#id",'hello word!')
   ```
 
-### dom.set(value) -- 建议使用dom.fill
+### dom.set(value,sign) -- 建议使用dom.fill
+  **不建议使用该指令，后续版本将移除，统一使用dom.fill**
   对当前操作的元素执行赋值操作, 元素必须是可赋值的类型, 如input类型。
 
   ``` js
-  await dom.set('hello word!')
+  await dom.set('hello word!',"#id")
   ```
 ### dom.upload(id,filePath)
   上传文件, 控制input file 自动上传文件，需要传递input框的唯一id, 以及本地文件路径。
