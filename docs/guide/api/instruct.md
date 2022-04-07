@@ -134,6 +134,8 @@
 
 ### browser.on(event:'request'| 'requestfaile' | 'requestfinished' | 'response',callback:Function)
 监听浏览器事件
+**注意:**:  监听事件是异步的且持续的,你不能期待再事件中抛出错误并中断执行。如果你需要同步使用[page.waitForResponse](https://dqa.jd.com/cherry/guide/api/instruct.html#page.waitForResponse)
+
 ``` js
 await browser.on('request',(res)=>{
     // 监听页面请求
@@ -165,6 +167,19 @@ await browser.route('**/*.{png}',(route)=>{
   创建新页面打开网页, 传入标准的`url`格式
   ``` js
   await page.create('https://www.baidu.com') // 打开百度页面
+  ```
+
+####  page.waitForResponse
+  等待页面的接口响应
+  **提示:**:  这里使用Promise.all 是为了让两个操作同时进行，wait Response 基于事件监听,你不能等待监听而不去触发请求，这意味着什么都不会发生。
+  
+  ```js
+  const [res] = await Promise.all([
+    page.waitForResponse(response => response.url().includes('/ajax/websiteProfile/online.json') && response.status() === 200),
+    // Triggers the response
+    page.to(`http://t.268xue.com/`)
+  ]);
+  console.log('response',res.url())
   ```
 
 ### page.to(url)
