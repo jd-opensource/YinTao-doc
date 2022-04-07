@@ -47,7 +47,7 @@
   | --------   | --------  | --------  |  -------- |
   | url      | string| 空   |  录制时默认打开的地址   |
   | storage    | any    |  空     | 自定义参数仓库    |
-  | device    | string    |  空     | 模拟移动设备录制, 支持的字段参考[setDevice](http://localhost:8080/cherry/guide/api/instruct.html#page-setdevice-name-string) |
+  | device    | string    |  空     | 模拟移动设备录制, 支持的字段参考[setDevice](https://coding.jd.com/cherry/core/blob/master/src/server/deviceDescriptorsSource.json) |
   | hosts       | Map    | 空      | host信息 `{"域名":"解析IP地址"}`|     
 
 **数据格式:**

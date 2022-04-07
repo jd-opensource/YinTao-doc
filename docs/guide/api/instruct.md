@@ -169,7 +169,7 @@ await browser.route('**/*.{png}',(route)=>{
   await page.create('https://www.baidu.com') // 打开百度页面
   ```
 
-####  page.waitForResponse
+### page.waitForResponse
   等待页面的接口响应
   **提示:**:  这里使用Promise.all 是为了让两个操作同时进行，wait Response 基于事件监听,你不能等待监听而不去触发请求，这意味着什么都不会发生。
   
