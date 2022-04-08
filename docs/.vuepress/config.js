@@ -80,6 +80,10 @@ module.exports = {
               title: "指令",
               path: "/guide/api/instruct"
             },
+            {
+              title: "粘贴板配置",
+              path: "/guide/api/pasteConfig"
+            }
           ]
         },
         {
