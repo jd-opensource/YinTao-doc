@@ -241,8 +241,15 @@ await browser.route('**/*.{png}',(route)=>{
 
 ### page.screenshot(filePath)
   屏幕截图, filePath表示截图存放路径。
+  必须指明详细的文件地址，而非目录地址。
   ``` js
-  await page.screenshot('/src/screenshot/') // 截图存取至该路径下
+  await page.screenshot('/src/screenshot/nihao.jpg') // 截图存取至该路径下
+  // 兼容多平台运行时需要提供全平台可用路径
+
+  const path = require('path')
+  const os = require('os')
+  const imgPath = path.resolve(os.tmpdir(),'nihao.jpg') // 获取跨平台的临时目录
+  await page.screenshot(imgPath) 
   ```
 
 ## keyboard
