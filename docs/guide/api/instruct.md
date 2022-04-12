@@ -183,11 +183,28 @@ await browser.route('**/*.{png}',(route)=>{
   console.log('response',res.url())
   ```
 
-### page.to(url)
+### page.to(url[, options])
   切换当前页面的url,支持传入标准的`url`格式。
+
+  options <Object>
+
+  - referer <string>: Referer header value. 
+
+- timeout: <number> Maximum operation time in milliseconds, defaults to 30 seconds, pass 0 to disable timeout. 
+  
+- waitUntil: <"load"|"domcontentloaded"|"networkidle"|"commit"> When to consider operation succeeded, defaults to load. Events can be either:#
+
+  * 'domcontentloaded' - consider operation to be finished when the DOMContentLoaded event is fired.
+
+  * 'load' - consider operation to be finished when the load event is fired.
+  
+  * 'networkidle' - consider operation to be finished when there are no network connections for at least 500 ms.
+  
+  * 'commit' - consider operation to be finished when network response is received and the document started loading.
 
   ``` js
   await page.to('https://www.baidu.com')
+   await page.to('https://www.baidu.com',{waitUntil:'commit'})
   ```
 
 ### page.getURL()
@@ -307,10 +324,12 @@ await browser.route('**/*.{png}',(route)=>{
   ```
 ## assert
 
-### assert.all(string)
+### assert.all(string,times)
   全局断言,判断当前页面内是否存在指定字符串。
+  默认判断规则为，判定默认6次每次间隔500ms,如果在规定时间能为找到则断言失败
   ``` js
   await assert.all('立即下单') // 判断页面内是否存在立即下单文字
+  await assert.all('立即下单',10) // 增加重试次数
   ```
 
 ### assert.custom(sign,input,value,operate)
