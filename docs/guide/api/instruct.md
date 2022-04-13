@@ -108,12 +108,11 @@
   await dom.upload('#cherry','D:/cherry.txt') // 注意文件路径中使用\\或/，避免编码错误
   ```
 
-### dom.getAttributes(name)
-  获取当前操作元素的属性，具体属性值参考html dom。
+### dom.getAttributes(sign,attr)
+  通过sign 和属性名获取对应内容
 
    ``` js
-  var id = await dom.getAttributes('id') // 获取当前dom的id
-  var className =  await dom.getAttributes('className') // 获取当前操作dom的calss名称
+  var className =  await dom.getAttributes("#id",'class') // 获取当前操作dom的calss名称
   ```
 
 <!-- ### dom.lineKeyOperation(key,rowKey,optKey)
