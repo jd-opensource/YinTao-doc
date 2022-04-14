@@ -17,6 +17,7 @@
   | url      | string| 空   |  录制时默认打开的地址   |
   | compatibility      | bool| 空   |  兼容模式,默认采用cherry浏览器,开启后将使用Chromium  |
   | storage    | any    |  空     | 自定义参数仓库    |
+   | cookies    | [Cookie](https://dqa.jd.com/cherry/guide/data/cookie.html)[]    |  空     | 可接收cookie数组,用于初始化配置 |
   | device    | string    |  空     | 模拟移动设备录制, 支持的字段参考[setDevice](https://coding.jd.com/cherry/core/blob/master/src/server/deviceDescriptorsSource.json) |
   | hosts       | Map    | 空      | host信息 `{"域名":"解析IP地址"}`|     
   
@@ -72,6 +73,7 @@
   | script     | string |   空     |  执行的脚本|
   | storage    | any    |  空     | 自定义参数仓库    |
   | hosts       | Map    | 空      | host信息 `{"域名":"解析IP地址"}`|  
+  | cookies    | [Cookie](https://dqa.jd.com/cherry/guide/data/cookie.html)[]    |  空     | 可接收cookie数组,用于初始化配置 |
   | remoteReport | object    | 空      | 远程执行需要上报的地址|  
 
   remoteReport 类型:object:

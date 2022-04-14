@@ -148,6 +148,10 @@ module.exports = {
               title: "keyCode",
               path: "/guide/data/keyCode"
             },
+            {
+              title: "cookie",
+              path: "/guide/data/cookie"
+            }
           ]
         },
       ]
