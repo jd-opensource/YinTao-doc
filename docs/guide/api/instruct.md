@@ -169,6 +169,15 @@ await browser.route('**/*.{png}',(route)=>{
   await page.create('https://www.baidu.com') // 打开百度页面
   ```
 
+### page.waitPopup()
+  将页面上下文切换至弹出的新窗口中
+  ``` js
+    await dom.click("#pageOpen") // 该点击操作将启动新窗口
+    await page.waitPopup() // 将上下文切换至最近打开的窗口中
+    // 后续操作将在新窗口中进行
+    await dom.fill("#id","123")
+  ```
+
 ### page.waitForResponse
   等待页面的接口响应
   **提示:**:  这里使用Promise.all 是为了让两个操作同时进行，wait Response 基于事件监听,你不能等待监听而不去触发请求，这意味着什么都不会发生。
