@@ -6,7 +6,10 @@
   执行时只存在一套上下文，即当前控制的页面。多页面直接操作必须进行手动切换(不建议使用多页面)。
   注意: `execJavaScript`执行环境仅为当前控制的浏览器页面,而原生的js将在node侧执行。
 
-## cookies(type,details:object)
+## cookies
+  适用于用户身份认证，以及验证码跳过。
+
+### cookies.setAll
   说明: 设置所有cookies
 
    type: "setAll",details参数：
@@ -16,10 +19,10 @@
   | value       | string |  空     |必填，cookie值|
   示例:
   ```js
-  await cookies("setAll","https://www.baidu.com/","jZ0bGJpeXR3")
+  await cookies.setAll("https://www.baidu.com/","jZ0bGJpeXR3")
   ```
 
-
+### cookies.set 
   说明: 设置单个cookies 
 
   type: "set"
@@ -43,21 +46,13 @@
 
   示例:
   ```js
-  await cookies("set",[{
+  await cookies.set([{
     "domain": ".jd.com",
     "name": "sso.jd.com",
     "path": "/",
     "value": "jZ0bGJpeXR3Z1FCeWRPclJ1LTRtOUI2YWR6fkpXfmxKSDU1Sk5LS3htS3dDS3RoRUFBQUFBJ",
   }])
   ```
-  说明: 清除所有cookie
-
-  一般不需要使用，运行时会创建干净的环境，不包含如何cookie。
-
-  ```js
-  await clearCookie()
-  ```
-
 ## dom
 
 ### dom.exist(sign): boolean
