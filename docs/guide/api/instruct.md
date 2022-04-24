@@ -71,12 +71,31 @@
   
   等待元素出现，默认等待最大时间为10s,如果10s内还未出现则抛出错误，元素出现后执行后续命令。
 
+  `sign`： 元素标记，用于查找定位元素。
+
   `ms`: 单位毫秒，设置最长等待时间
+
+
+  ``` js
+  await dom.wait('#id')
+  ```
+
+### dom.viewTo(sign)
+  通过滚动条让指定元素在屏幕中居中显示.
 
   `sign`： 元素标记，用于查找定位元素。
 
   ``` js
-  await dom.wait('#id')
+  await dom.viewTo('#id')
+  ```
+
+### dom.dispatchEvent(sign, eventName)
+
+  `sign`： 元素标记，用于查找定位元素。
+  `eventName`: 元素事件名称
+
+  ``` js
+  await dom.dispatchEvent('#id','click')  // 触发元素事件
   ```
 
 ### dom.click()
