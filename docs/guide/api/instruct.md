@@ -339,10 +339,10 @@ await browser.route('**/*.{png}',(route)=>{
   ``` js
   await mouse.move(100,100)  // 模拟鼠标移动至像素100,100位置
   ```
-  ### mouse.wheel(options:{button?: string;clickCount?: number;})
+  ### mouse.wheel(x, y)
   用于模拟鼠标滚轮事件。
   ``` js
-  await mouse.wheel({ deltaY: 300 })  // 滚轮向下滚动300
+  await mouse.wheel(0,300)  // 滚轮向下滚动300
   ```
 ## assert
 
