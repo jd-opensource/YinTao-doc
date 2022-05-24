@@ -93,11 +93,41 @@
   await dom.dispatchEvent('#id','click')  // 触发元素事件
   ```
 
-### dom.click()
-  对当前操作的元素执行点击操作
+### dom.click(sign, option)
+  对目标定位元素进行点击操作
+
+options:
+
+- button?: "left"|"right"|"middle" 默认left;
+
+- clickCount?: number 点击次数默认为1;
+
+- delay?: number 点击延迟;
+
+- force?: boolean 是否强制点击，强制点击不校验元素操作状态;
+
+- modifiers?: Array<"Alt"|"Control"|"Meta"|"Shift">;
+
+- noWaitAfter?: boolean;
+
+- position?: { 相对于元素填充框左上角使用的点。如果未指定，则使用元素的某个可见点
+
+  x: number;
+
+  y: number;
+
+};
+
+- strict?: boolean; 调用需要选择器解析为单个元素。如果给定的选择器解析为多个元素，则调用将引发异常
+
+- timeout?: number; 命令最大执行超时时间
+
+- trial?: boolean; 仅进行元素操作校验，但不进行点击
+
 
   ``` js
-  await dom.click()
+  await dom.click("#id")
+  await dom.click("#id",{timeout:3000}) // 增加点击命令超时
   ```
   
 ### dom.fill(sign, value)
@@ -208,21 +238,21 @@ await browser.route('**/*.{png}',(route)=>{
 ### page.to(url[, options])
   切换当前页面的url,支持传入标准的`url`格式。
 
-  options <Object>
+  options:
 
-  - referer <string>: Referer header value. 
+  - referer `<string>`: Referer header value. 
 
-- timeout: <number> Maximum operation time in milliseconds, defaults to 30 seconds, pass 0 to disable timeout. 
-  
-- waitUntil: <"load"|"domcontentloaded"|"networkidle"|"commit"> When to consider operation succeeded, defaults to load. Events can be either:#
+  - timeout: `<number>` Maximum operation time in milliseconds, defaults to 30 seconds, pass 0 to disable timeout. 
+    
+  - waitUntil: `<"load"|"domcontentloaded"|"networkidle"|"commit">` When to consider operation succeeded, defaults to load. Events can be either:#
 
-  * 'domcontentloaded' - consider operation to be finished when the DOMContentLoaded event is fired.
+    * 'domcontentloaded' - consider operation to be finished when the DOMContentLoaded event is fired.
 
-  * 'load' - consider operation to be finished when the load event is fired.
-  
-  * 'networkidle' - consider operation to be finished when there are no network connections for at least 500 ms.
-  
-  * 'commit' - consider operation to be finished when network response is received and the document started loading.
+    * 'load' - consider operation to be finished when the load event is fired.
+    
+    * 'networkidle' - consider operation to be finished when there are no network connections for at least 500 ms.
+    
+    * 'commit' - consider operation to be finished when network response is received and the document started loading.
 
   ``` js
   await page.to('https://www.baidu.com')
