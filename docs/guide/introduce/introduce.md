@@ -10,11 +10,11 @@
 <br><br>
 
 ## 开源
-&ensp;&ensp;&ensp;&ensp; cherry是一款开源的软件, 我们允许用户去分享和建设它。
+&ensp;&ensp;&ensp;&ensp; cherry是一款开源的软件, 我们希望和用户一起分享,建设。
 如果你希望它变得更好，我们需要您的加入。
 
 - cherry 客户端程序，提供上级通用包装器。 [cherry-coding](https://coding.jd.com/cherry/cherry)
-- core  核心执行程序。 [cherry-coding](https://coding.jd.com/cherry/core)
+- core  核心执行程序。 [core-coding](https://coding.jd.com/cherry/core)
 - doc  cherry使用文档 [doc-coding](https://coding.jd.com/cherry/doc)
  
 <a href="/cherry/guide/introduce/download.html">前往下载</a>
