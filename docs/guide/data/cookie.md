@@ -1,4 +1,5 @@
 # Cookie object
+`录制时`cookie`必须`额外传递`url`: `string` 标明录制地址。
 
 * name : `string` - cookie 的名称。
 * value: `string` - cookie 的值。
