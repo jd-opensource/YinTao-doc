@@ -2,17 +2,14 @@
 
 ## Postman
 ### 录制脚本
-- 打开postman，创建post请求，地址栏输入：`http://localhost:8777/liveScript`
+- 打开postman，创建post请求，地址栏输入：`http://localhost:8777/live`
 - Body选择raw，格式选择JSON，内容输入如下
 ```js
 {
-    "script": "await openBrowser('https://www.baidu.com')",
-    "debug": false,
-    "clear": false,
-    "storage": "123",
-    "auxiliaryVerify": false,
-    "showAuxiliary": false,
-    "cookies": "cookies"
+  "url": "https://element.eleme.cn/#/zh-CN/component/cascader",
+  "storage": {
+    "id":123
+  }
 }
 ```
 - postman完整录制请求截图如下
@@ -27,13 +24,7 @@
 ```js
 {
     "script": "await page.create(`http://www.baidu.com`)\nawait page.change(0)\nawait dom.click(`#kw`)\nawait dom.set(`京东`,`#kw`)\nawait keyboard.press(`Enter`)\nawait dom.click(`(//*[string()='京东JD.COM官网 多快好省 只为品质生活'])[1]`)\nawait page.change(1)\n",
-    "debug": false,
-    "clear": false,
     "storage": "123",
-    "traceless": false,
-    "autoExit": true,
-    "resultHint": true,
-    "cookies": "cookies"
 }
 ```
 - postman完整回放脚本截图如下
