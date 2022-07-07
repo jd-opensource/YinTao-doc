@@ -11,7 +11,7 @@ module.exports = {
   base: "/cherry/",
   plugins: [],
   themeConfig: {
-    version:"1.0.5", // 发布的版本号
+    version:"1.0.6", // 发布的版本号
     // 添加导航栏
     nav: [{
         text: "主页",
@@ -123,6 +123,10 @@ module.exports = {
           children: [{
               title: "基础功能操作",
               path: "/guide/examples/baseOpt"
+            },
+            {
+              title: "选择器进阶",
+              path: "/guide/examples/select"
             },
             {
               title: "H5测试支持",
