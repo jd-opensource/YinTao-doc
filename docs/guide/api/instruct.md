@@ -293,12 +293,14 @@ await browser.route('**/*.{png}',(route)=>{
   await page.close(0)
   ``` -->
 
-### page.change(index)
-  切换当前控制的页面, 1表示第一个。
+### page.change(index | url)
+  切换当前控制的页面, 1表示第一个。除了索引切换外还支持url模糊切换。
   注: 如果先前页面在iframe内，切换页面后会自动退出iframe。
 
   ``` js
   await page.change(1)
+  await page.change("baidu.com") // 切换至url 包含baidu.com
+  await page.change("/seach") // 切换至url 包含seach
   ```
 
 ### page.changeIframe(index)
