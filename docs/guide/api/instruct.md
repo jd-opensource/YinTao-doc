@@ -151,6 +151,19 @@ options:
   await dom.upload('#cherry','D:/cherry.txt') // 注意文件路径中使用\\或/，避免编码错误
   ```
 
+### dom.select(sign,{value?:string,label?:string,index?:number},options)
+
+options:
+ - force? <boolean> Whether to bypass the actionability checks. Defaults to false.
+ - noWaitAfter? <boolean> Actions that initiate navigations are waiting for these navigations to happen and for pages to start loading. You can opt out of waiting via setting this flag. You would only need this option in the exceptional cases such as navigating to inaccessible pages. Defaults to false.
+ - strict? <boolean> When true, the call requires selector to resolve to a single element. If given selector resolves to more then one element, the call throws an exception. 
+ - timeout? <number> Maximum time in milliseconds, defaults to 30 seconds, pass 0 to disable timeout.
+
+```js
+await dom.select("#id",{index:2})  // 选择下拉框第三个
+await dom.select("#id",{label:"京东"})  // 选择 内容为京东的下啦
+```
+
 ### dom.getAttributes(sign,attr)
   通过sign 和属性名获取对应内容
 
@@ -305,8 +318,14 @@ await browser.route('**/*.{png}',(route)=>{
 
 ### page.changeIframe(index)
   切换当前控制的iframe, 0表示当前页面内第一个iframe, -1 表示退出iframe, 默认不会进入iframe内。
+  也支持通过传递iframe-url片段切换到指定iframe中，更加方便。
   ``` js
   await page.changeIframe(0)
+  // 根据 frame url进行切换
+  await page.changeIframe("/login")
+
+  // 退出iframe回到基础页面
+  await page.changeIframe(-1)
   ```
 
 ### page.screenshot(filePath)
