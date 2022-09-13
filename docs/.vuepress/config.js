@@ -119,7 +119,6 @@ module.exports = {
         {
           title: "使用示例",
           collapsable: false,
-          path: "/guide/examples/addAndDel",
           children: [{
               title: "基础功能操作",
               path: "/guide/examples/baseOpt"
