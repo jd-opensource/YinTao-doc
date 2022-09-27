@@ -121,23 +121,23 @@ module.exports = {
           collapsable: false,
           children: [{
               title: "基础功能操作",
-              path: "/guide/examples/baseOpt"
+              path: "/guide/exam/baseOpt"
             },
             {
               title: "选择器进阶",
-              path: "/guide/examples/select"
+              path: "/guide/exam/select"
             },
             {
               title: "H5测试支持",
-              path: "/guide/examples/mobile"
+              path: "/guide/exam/mobile"
             },
             {
               title: "日期控件",
-              path: "/guide/examples/modifyDate"
+              path: "/guide/exam/modifyDate"
             },
             {
               title: "接口数据测试",
-              path: "/guide/examples/apiHook"
+              path: "/guide/exam/apiHook"
             }
           ]
         },
