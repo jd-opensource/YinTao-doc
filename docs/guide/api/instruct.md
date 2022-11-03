@@ -271,7 +271,7 @@ await browser.route('**/*.{png}',(route)=>{
   // commit 事件触发时,则判定页面加载完成。 -用于快速执行命令,一些网站主程序加载快，但依赖缓慢可用此参数加速测试。
   await page.to('https://www.baidu.com',{waitUntil:'commit'})
 
-  // 增加页面访问超时事件，默认10s， 当前设置30s
+  // 增加页面访问超时时间，默认10s， 当前设置30s
   await page.to('https://www.baidu.com',{timeout: 30000})
   ```
 
