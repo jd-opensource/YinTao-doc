@@ -345,6 +345,17 @@ await browser.route('**/*.{png}',(route)=>{
   await page.screenshot(imgPath) 
   ```
 
+
+## img
+
+通过图像进行操作
+### img.click(imgPath)
+通过图像进行点击, 会点击当前页面匹配的图像中心区域。基于sift实现
+``` js
+await img.click("https://storage.360buyimg.com/assert/baidu_btn.jpg") // 使用远程图片操作点击
+await img.click("/use/app/baidu_btn.jpg") // 使用本地图像点击
+```
+
 ## keyboard
 ### keyboard.press(<a href="/cherry/guide/api/apistruct.html">keyCode</a>)
   模拟点击键盘。
