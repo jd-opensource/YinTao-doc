@@ -419,6 +419,13 @@ await img.click("/use/app/baidu_btn.jpg") // 使用本地图像点击
   await assert.all('立即下单',10) // 增加重试次数
   ```
 
+### assert.true(value: bool | string | number ,errHint)
+  判断value内容是否为true.
+  ``` js
+  await assert.true('存在') // 
+  await assert.all(false, "断言内容为false,请检查相关代码逻辑") // 当断言失败时会显示，提示文字
+  ```
+
 ### assert.custom(sign,input,value,operate)
   断言，获取元素的预期值与实际值进行比较。sign:元素标记，支持传递元素的`css选择器`、`xpath`、`id`；input:断言的预期值；value:获取`sign`元素的值；opreate:比较方式：`0-相等`，`1-不相等`，`2-包含`，`3-不包含`；
   ```js
