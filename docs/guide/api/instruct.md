@@ -168,6 +168,9 @@ await dom.select("#id",{label:"京东"})  // 选择 内容为京东的下啦
   通过sign 和属性名获取对应内容
 
    ``` js
+  var text =  await dom.getAttributes("#id",'innerText') // 获取文本内容
+  var value =  await dom.getAttributes("#id",'value') // 获取input中的值
+  var checked =  await dom.getAttributes("#id",'checked') // 检查复选框是否勾选
   var className =  await dom.getAttributes("#id",'class') // 获取当前操作dom的calss名称
   ```
 
