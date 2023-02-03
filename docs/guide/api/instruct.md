@@ -53,6 +53,14 @@
     "value": "jZ0bGJpeXR3Z1FCeWRPclJ1LTRtOUI2YWR6fkpXfmxKSDU1Sk5LS3htS3dDS3RoRUFBQUFBJ",
   }])
   ```
+
+### cookies.clear 
+  说明: 清除浏览器cookie
+
+```js
+await cookies.clear()
+```
+
 ## dom
 
 ### dom.exist(sign): boolean
@@ -441,6 +449,7 @@ await img.click("/use/app/baidu_btn.jpg") // 使用本地图像点击
   `opreate`: 比较方式：`0-相等`，`1-不相等`，`2-包含`，`3-不包含`；
   ```js
   await assert.custom('#su','value','百度一下',0) //判断su的value是否等于百度一下
+  await assert.custom('.title','innerText','hello',0) // 获取class=tiile的文本内容进行断言
   ```
 
 ### assert.title(string)
