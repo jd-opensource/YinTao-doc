@@ -113,6 +113,10 @@ module.exports = {
             {
               title: "使用说明",
               path: "/guide/course/use"
+            },
+            {
+              title: "问题追踪",
+              path: "/guide/course/trace"
             }
           ]
         },
