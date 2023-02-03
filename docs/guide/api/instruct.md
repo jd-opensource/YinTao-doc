@@ -144,6 +144,20 @@ options:
   await dom.fill("#id",'hello word!')
   ```
 
+## dom.screenshot(sign,option)
+  对指定元素进行截图
+
+  options:
+ - fullPage? <boolean> 如果元素内有滚动条，可以设置此参数截取完整元素
+ - mask? <sign[]> 在截图时可以配置忽略页面元素
+ - path? <string> 截图图像存储路径
+ - quality? <number> 图像的质量，介于 0-100 之间。不适用于png图像。
+ - timeout? <number> 以毫秒为单位的最长时间,默认为 30 秒,传递0以禁用超时
+ 
+  ``` js
+  await dom.screenshot('#main-chart',{path:'ack.jpg',fullPage:true})
+  ```
+
 ### dom.set(value,sign) -- 建议使用dom.fill
   **不建议使用该指令，后续版本将移除，统一使用dom.fill**
   对当前操作的元素执行赋值操作, 元素必须是可赋值的类型, 如input类型。
@@ -343,9 +357,18 @@ await browser.route('**/*.{png}',(route)=>{
   await page.changeIframe(-1)
   ```
 
-### page.screenshot(filePath)
+### page.screenshot(filePath,options)
   屏幕截图, filePath表示截图存放路径。
   必须指明详细的文件地址，而非目录地址。
+
+    options:
+ - fullPage? <boolean> 如果元素内有滚动条，可以设置此参数截取完整元素
+ - mask? <sign[]> 在截图时可以配置忽略页面元素
+ - path? <string> 截图图像存储路径,如已配置filePath则优先使用filePath
+ - quality? <number> 图像的质量，介于 0-100 之间。不适用于png图像。
+ - timeout? <number> 以毫秒为单位的最长时间,默认为 30 秒,传递0以禁用超时
+ 
+
   ``` js
   await page.screenshot('/src/screenshot/nihao.jpg') // 截图存取至该路径下
   // 兼容多平台运行时需要提供全平台可用路径
@@ -482,8 +505,18 @@ await img.click("/use/app/baidu_btn.jpg") // 使用本地图像点击
   ``` js
   await hint('成功提示的文案','success') 
   ```
-## clearCookie()
-  清除Cookie
+## errorSend(msg)
+  发送自定义错误,  可以在不影响任务执行的情况下，将错误记录，并修改当前执行结果为失败。
+
   ```js
-  await clearCookie()
+
+  errorSend("失败了，原因为未找到登陆框")
+
+  // 通常配合try catch使用, 可以在不中断后续命令执行的情况下，记录错误
+  try{
+    await dom.click("#id")
+  }catch(e){
+    errorSend("错误未找到点击id")
+  }
+  console.log("继续往下执行")
   ```
