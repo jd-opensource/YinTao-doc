@@ -82,6 +82,7 @@
   | result     | string   |   空      | 远程上传结果地址 |
   | log        | string   |    空     | 远程上传日志地址 |
   | image      | string   |    空     | 远程上传图片地址 |
+  | trace      | string   |    空     | 远程上传追踪地址,支持本地路径以及http地址 |
 
   请求示例:
 ``` js
