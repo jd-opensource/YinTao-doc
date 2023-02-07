@@ -70,6 +70,14 @@ await cookies.clear()
   ``` js
   await dom.exist('#id')
   ```
+
+### dom.dragTo(sign1,sign2)
+
+  拖拽元素，控制鼠标拖拽从元素1拖动至元素2, 入需更精细化控制可使用`mouse.dragTo`
+
+```js
+  await dom.dragTo('//*[@id="anchor-0"]/div/div[3]/div/div/div[2]','//*[@id="anchor-0"]/div/div[3]/div/div/div[1]')
+```
 ### dom.wait(sign,ms)
   
   等待元素出现，默认等待时间为5s,如果5s内还未出现则抛出错误，元素出现后执行后续命令。
@@ -413,7 +421,8 @@ await img.click("/use/app/baidu_btn.jpg") // 使用本地图像点击
   ```
 
 ## mouse
-  ### mouse.down(options:{button?: string;clickCount?: number;})
+
+### mouse.down(options:{button?: string;clickCount?: number;})
   用于模拟鼠标按下事件，默认值：button = 'left', clickCount = 1。
   ``` js
   await mouse.down()  // 模拟鼠标按下
@@ -422,6 +431,19 @@ await img.click("/use/app/baidu_btn.jpg") // 使用本地图像点击
   await mouse.down({button:"right"})
   await mouse.up({button:"right"})
   ```
+
+### mouse.dragTo(point: {x:number,y:number}, targetPoint: {x:number,y:number})
+使用鼠标进行拖拽，基于x，y坐标进行，将从point位置拖拽至targetPoint。
+也可用于模拟滑动屏幕。
+
+```js
+await mouse.dragTo({x:378,y:447},{x:192,y:447})
+
+// todo在无法得知坐标的情况下，可以通过在控制台输入:
+document.onmousemove = (e)=>{console.log("x:",e.x,"y:",e.y)}
+// 即可实时打印坐标位置
+```
+
 ### mouse.up(options:{button?: string;clickCount?: number;})
   用于模拟鼠标抬起事件，
   默认值：button = 'left', clickCount = 1。
@@ -505,6 +527,17 @@ await img.click("/use/app/baidu_btn.jpg") // 使用本地图像点击
   ``` js
   await hint('成功提示的文案','success') 
   ```
+
+## setBrowserCofing(options)
+  设置浏览器配置信息。
+  
+  全量配置参考:newContext(  [options](https://playwright.dev/docs/api/class-browser#browser-new-context))
+
+ ```js 
+ await setBrowserCofing({userAgent:"Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1"}) // 自定义浏览器userAgent
+ 
+ ``` 
+
 ## errorSend(msg)
   发送自定义错误,  可以在不影响任务执行的情况下，将错误记录，并修改当前执行结果为失败。
 
