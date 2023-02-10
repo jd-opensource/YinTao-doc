@@ -369,7 +369,7 @@ await browser.route('**/*.{png}',(route)=>{
   屏幕截图, filePath表示截图存放路径。
   必须指明详细的文件地址，而非目录地址。
 
-    options:
+ - options:
  - fullPage? <boolean> 如果元素内有滚动条，可以设置此参数截取完整元素
  - mask? <sign[]> 在截图时可以配置忽略页面元素
  - path? <string> 截图图像存储路径,如已配置filePath则优先使用filePath
