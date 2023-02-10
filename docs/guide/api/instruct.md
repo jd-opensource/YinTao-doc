@@ -152,7 +152,7 @@ options:
   await dom.fill("#id",'hello word!')
   ```
 
-## dom.screenshot(sign,option)
+### dom.screenshot(sign,option)
   对指定元素进行截图
 
   options:
