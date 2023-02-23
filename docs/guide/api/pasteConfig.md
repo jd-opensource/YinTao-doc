@@ -33,6 +33,18 @@ cherry 作为底层引擎，经常会在多个平台间使用，为了让用户�
 }
 ```
 
+### 模拟录制并使用快捷cookies
+```json
+{
+    "url": "https://hospital-beta01.healthjd.com/pethospital/first/housekeeper",
+    "device":"iPhone 6",
+    "cookies":{
+        "url":"https://hospital-beta01.healthjd.com/pethospital/first/housekeeper",
+    	"data":"__jda=98075014.1677122656594590344178.1677122656.1677122656.1677122656.1; __jdv=98075014%7Cdirect%7C-%7Cnone%7C-%7C1677122656595; __jdc=98075014; mba_muid=1677122656594590344178; pt_key=AAJj9tzYADDlAcxsjRJmiKtwOjUpXA6xKyGngu0jjpv0UKr2anI7VYrzg5QXBn29NjomMiFl4; pt_pin=jd_71016da8d4de3; pt_token=hr8eh2zt; pwdt_id=jd_71016da8d4de3; sfstoken=tk01ma5161b90a8sMXgxNGh4K1IvvgX7/JGshz3aFJC0upRHpzZQup8CM8EUdz1U3d/HtnT7IenQnq+LBMv12AC6wf/k; __jdb=98075014.7.1677122656594590344178|1.1677122656; mba_sid=16771226565972996304242824537.4; __jd_ref_cls=MInternetPetHospital_FirstHousekeeper_Tab"
+    }
+}
+```
+
 ### 录制/执行 传递动态host
 
 ```json
