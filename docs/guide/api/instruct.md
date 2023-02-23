@@ -280,6 +280,16 @@ await browser.route('**/*.{png}',(route)=>{
   console.log('response',res.url())
   ```
 
+## page.setBrowserCofing(options)
+  设置浏览器配置信息。
+  
+  全量配置参考:newContext(  [options](https://playwright.dev/docs/api/class-browser#browser-new-context))
+
+ ```js 
+ await page.setBrowserCofing({userAgent:"Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1"}) // 自定义浏览器userAgent
+ 
+ ``` 
+
 ### page.to(url[, options])
   切换当前页面的url,支持传入标准的`url`格式。
 
@@ -527,16 +537,6 @@ document.onmousemove = (e)=>{console.log("x:",e.x,"y:",e.y)}
   ``` js
   await hint('成功提示的文案','success') 
   ```
-
-## setBrowserCofing(options)
-  设置浏览器配置信息。
-  
-  全量配置参考:newContext(  [options](https://playwright.dev/docs/api/class-browser#browser-new-context))
-
- ```js 
- await setBrowserCofing({userAgent:"Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1"}) // 自定义浏览器userAgent
- 
- ``` 
 
 ## errorSend(msg)
   发送自定义错误,  可以在不影响任务执行的情况下，将错误记录，并修改当前执行结果为失败。
