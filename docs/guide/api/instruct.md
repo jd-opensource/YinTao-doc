@@ -318,6 +318,15 @@ await browser.route('**/*.{png}',(route)=>{
   await page.to('https://www.baidu.com',{timeout: 30000})
   ```
 
+### page.hasText(text:string,options:{timeout: number }) : bool
+- v1.1.7+
+
+查找当前页面是否包含text元素，结果返回布尔值。
+  ``` js
+  await page.to('https://www.baidu.com')
+  let result = await page.hasText('百度一下')
+  ```
+
 ### page.getURL()
 
   获取当前页面的地址。
