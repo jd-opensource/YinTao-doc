@@ -219,6 +219,24 @@ await dom.select("#id",{label:"京东"})  // 选择 内容为京东的下啦
   await dom.hover('#id') # 根据id定位元素，鼠标悬浮显示
    ```
 
+### dom.tap(sign, options?: {
+    force?: boolean | undefined
+    noWaitAfter?: boolean | undefined
+    position?: {
+        x: number
+        y: number
+    } | undefined
+    strict?: boolean | undefined
+    timeout?: number | undefined
+    trial?: boolean | undefined
+})
+  
+鼠标悬浮操作, 其中参数`sign`支持传递元素的`css选择器`、`xpath`、`id`。
+
+``` js
+  await dom.tap('#id') # 用于在h5中模拟按压
+```
+
 ## browser
 
 ### browser.on(event:'request'| 'requestfaile' | 'requestfinished' | 'response',callback:Function)
