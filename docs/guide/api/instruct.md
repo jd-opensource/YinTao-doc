@@ -262,6 +262,14 @@ await browser.route('**/*.{png}',(route)=>{
 
 ## page
 
+### page.setViewSize(width,height)
+
+设置页面视图宽高，可用于在运行时动态修改。
+
+  ``` js
+  await page.setViewSize(200,400) // 设置页面视图大小为宽200高400
+  ```
+
 ### page.setDevice(name:string)
 设置页面设备模拟, 注意需要在页面创建前设置，否则只在之后创建的页面生效.
 
