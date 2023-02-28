@@ -11,7 +11,7 @@ module.exports = {
   base: "/cherry/",
   plugins: [],
   themeConfig: {
-    version:"1.1.7", // 发布的版本号
+    version:"2.0.0", // 发布的版本号
     // 添加导航栏
     nav: [{
         text: "主页",

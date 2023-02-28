@@ -309,6 +309,8 @@ await browser.route('**/*.{png}',(route)=>{
 ### page.setBrowserCofing(options)
   设置浏览器配置信息。
   
+  !！！ 注意-必须在第一访问页面前进行，或设置后使用page.create进行新环境搭建，否则配置不会生效
+
   全量配置参考:newContext(  [options](https://playwright.dev/docs/api/class-browser#browser-new-context))
 
  ```js 
