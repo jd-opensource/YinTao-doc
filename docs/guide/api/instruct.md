@@ -306,7 +306,7 @@ await browser.route('**/*.{png}',(route)=>{
   console.log('response',res.url())
   ```
 
-## page.setBrowserCofing(options)
+### page.setBrowserCofing(options)
   设置浏览器配置信息。
   
   全量配置参考:newContext(  [options](https://playwright.dev/docs/api/class-browser#browser-new-context))
