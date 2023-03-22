@@ -19,7 +19,7 @@ ui测试中最重要的内容是进行稳定的元素定位，想要做好这部
 
 ## xpath 选择器
 
-很多人对xpath可能并不陌生，但大多只了解xapth的基础定位方式,例如全路径定位`/html/body/div/p/span`
+很多人对xpath可能并不陌生，但大多只了解xpath的基础定位方式,例如全路径定位`/html/body/div/p/span`
 其实xpath支持很多定位方式，模糊以及动态定位，且编写，测试相对容易,因此`重点推荐使用`。
 
 以下理解需要[xpath基础](https://www.runoob.com/xpath/xpath-syntax.html)，不了解的可以先行学习
