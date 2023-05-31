@@ -72,6 +72,7 @@
   | --------   | --------  | --------  |  -------- |
   | script     | string |   空     |  执行的脚本|
   | storage    | any    |  空     | 自定义参数仓库    |
+  | browser    | string    |  'chrome'     | 执行使用的浏览器支持 'chrome' | 'firefox'| 'webkit' |
   | hosts       | Map    | 空      | host信息 `{"域名":"解析IP地址"}`|  
   | cookies    | [Cookie](https://dqa.jd.com/cherry/guide/data/cookie.html)[]    |  空     | 可接收cookie数组,用于初始化配置 |
   | remoteReport | object    | 空      | 远程执行需要上报的地址|  
