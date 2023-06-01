@@ -18,10 +18,5 @@
 
 # show
 <p style="text-align: center;">
-  <video src="ok.mp4" controls="controls" loop="loop" width="1000" ></video>
+  <video src="/ok.mp4" controls="controls" loop="loop" width="1000" ></video>
 </p>
-
-
-
-
-
