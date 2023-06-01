@@ -315,6 +315,9 @@ await browser.route('**/*.{png}',(route)=>{
 
  ```js 
  await page.setBrowserCofing({userAgent:"Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1"}) // 自定义浏览器userAgent
+
+// 配置允许获取定位权限，设置经纬度
+ await page.setBrowserCofing({permissions:['geolocation'], geolocation: { longitude: 12.4924, latitude: 41.8902 }})
  
  ``` 
 
