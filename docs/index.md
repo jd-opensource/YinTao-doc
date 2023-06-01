@@ -1,7 +1,7 @@
 # 简介
 
 
-&ensp;&ensp;&ensp;&ensp;`cherry`致力于打造简单、轻量、易部署的自动化浏览器引擎。它通过简单的脚本，丰富的指令、api提供强劲可控的自动化体验。并支持用户以浏览器插件的形式自定义引擎部分功能，简单快捷的进行自动化项目开发。
+&ensp;&ensp;&ensp;&ensp;cherry致力于打造简单、轻量、易部署的自动化浏览器引擎。它通过简单的脚本，丰富的指令、api提供强劲可控的自动化体验。并支持用户以浏览器插件的形式自定义引擎部分功能，简单快捷的进行自动化项目开发。
 
 ## 立即体验
 [点击这里](https://renranbk.gitee.io/cherry-preview/#/)立即体验cherry在线预览版
@@ -10,7 +10,7 @@
 <br><br>
 
 ## 开源
-&ensp;&ensp;&ensp;&ensp; `cherry`是一款开源的软件, 我们希望和用户一起分享,建设。
+&ensp;&ensp;&ensp;&ensp; cherry是一款开源的软件, 我们希望和用户一起分享,建设。
 如果你希望它变得更好，我们需要您的加入。
 
 - cherry 客户端程序，提供上级通用包装器。 [cherry-coding](https://coding.jd.com/cherry/cherry)
@@ -19,9 +19,7 @@
  
 <a href="/cherry/guide/introduce/download.html">前往下载</a>
 
-咚咚交流群: `1024606726`<br>
-负责人ERP: `zhouyuan63`<br>
+咚咚交流群: 1024606726<br>
+负责人ERP: zhouyuan63<br>
 欢迎下载体验，提出宝贵意见<br>
 更多项目请查看相关服务
-
-

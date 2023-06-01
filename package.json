@@ -6,10 +6,11 @@
   "author": "renran",
   "license": "MIT",
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs"
   },
   "devDependencies": {
-    "vuepress": "^1.7.1"
+    "vitepress": "^1.0.0-alpha.35",
+    "vue": "^3.2.45"
   }
 }

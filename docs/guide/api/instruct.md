@@ -1,71 +1,20 @@
 # 指令
 
 ## 说明
-  cherry 执行时主要通过解析指令代码执行, 这些内部指令在运行时以被预注册的js函数所替代,这意味着未知的指令无法得到正确的解析。
-  同时我们可以使用原生js进行逻辑编写。部分指令生效会有一些限制，这取决于不同页面之间的上下文差异，cherry对这些工作进行了简化。
+  `cherry` 执行时主要通过解析指令代码执行, 这些内部指令在运行时以被预注册的`js`函数所替代,这意味着未知的指令无法得到正确的解析。
+
+  同时我们可以使用原生`js`进行逻辑编写。部分指令生效会有一些限制，这取决于不同页面之间的上下文差异，`cherry`对这些工作进行了简化。
+
   执行时只存在一套上下文，即当前控制的页面。多页面直接操作必须进行手动切换(不建议使用多页面)。
-  注意: `execJavaScript`执行环境仅为当前控制的浏览器页面,而原生的js将在node侧执行。
 
-## cookies
-  适用于用户身份认证，以及验证码跳过。
+  注意: `execJavaScript`执行环境仅为当前控制的浏览器页面,而原生的`js`将在`node`侧执行。
 
-### cookies.setAll
-  说明: 设置所有cookies
-
-   type: "setAll",details参数：
-  | 名称        | 类型   |  默认值  | 说明  |
-  | --------   | --------  | --------  |  -------- |
-  | url        | string |  空     |必填，与cookie相关联的url|
-  | value       | string |  空     |必填，cookie值|
-  示例:
-  ```js
-  await cookies.setAll("https://www.baidu.com/","jZ0bGJpeXR3")
-  ```
-
-### cookies.set 
-  说明: 设置单个cookies 
-
-  type: "set"
-  
-  details参数:
-  | 名称        | 类型   |  默认值  | 说明  |
-  | --------   | --------  | --------  |  -------- |
-  | url        | string |  空     |必填，与cookie相关联的url|
-  | name       |  string|  空     |必填，cookie的名称|
-  | value      | string |  空     |必填，cookie的值|
-  | domain     | string |  空     |必填，cookie的域，使用前面的点进行标准化，以便适用于子域|
-  | path       | string |  空     |选填，cookie的路径|
-  | secure     | boolean| false   |选填，cookie是否标记为安全|
-  | httpOnly   | boolean| false   |选填，cookie是否仅标记为HTTP|
-  | expirationDate|double| 空  |选填，cookie的到期日期，表示自UNIX纪元以来的秒数|
-  | sameSite   | boolean|no_restriction|选填，应用于此cookie的相同站点策略,可选：unspecified,no_restriction,lax,strict|
-
-  注意: 新版不允许同时设置url和domain, 设置url后会自动生成对应的domain.
-  
-  如果你要设置单个cookie更推荐使用`domain` + `path` 设置, 而非`url`
-
-  示例:
-  ```js
-  await cookies.set([{
-    "domain": ".jd.com",
-    "name": "sso.jd.com",
-    "path": "/",
-    "value": "jZ0bGJpeXR3Z1FCeWRPclJ1LTRtOUI2YWR6fkpXfmxKSDU1Sk5LS3htS3dDS3RoRUFBQUFBJ",
-  }])
-  ```
-
-### cookies.clear 
-  说明: 清除浏览器cookie
-
-```js
-await cookies.clear()
-```
 
 ## dom
 
 ### dom.exist(sign): boolean
   
-  判断传入的元素值是否存在，存在返回true，不存在返回false。
+  判断传入的元素值是否存在，存在返回`true`，不存在返回`false`。
 
   ``` js
   await dom.exist('#id')
@@ -73,14 +22,14 @@ await cookies.clear()
 
 ### dom.dragTo(sign1,sign2)
 
-  拖拽元素，控制鼠标拖拽从元素1拖动至元素2, 入需更精细化控制可使用`mouse.dragTo`
+  拖拽元素，控制鼠标拖拽从`元素1`拖动至`元素2`, 入需更精细化控制可使用`mouse.dragTo`
 
 ```js
   await dom.dragTo('//*[@id="anchor-0"]/div/div[3]/div/div/div[2]','//*[@id="anchor-0"]/div/div[3]/div/div/div[1]')
 ```
 ### dom.wait(sign,ms)
   
-  等待元素出现，默认等待时间为5s,如果5s内还未出现则抛出错误，元素出现后执行后续命令。
+  等待元素出现，默认等待时间为`5s`,如果`5s`内还未出现则抛出错误，元素出现后执行后续命令。
 
   `sign`： 元素标记，用于查找定位元素。
 
@@ -112,19 +61,12 @@ await cookies.clear()
   对目标定位元素进行点击操作
 
 options:
-
 - button?: "left"|"right"|"middle" 默认left;
-
 - clickCount?: number 点击次数默认为1;
-
 - delay?: number 点击延迟;
-
 - force?: boolean 是否强制点击，强制点击不校验元素操作状态;
-
 - modifiers?: Array<"Alt"|"Control"|"Meta"|"Shift">;
-
 - noWaitAfter?: boolean;
-
 - position?: { 相对于元素填充框左上角使用的点。如果未指定，则使用元素的某个可见点
 
   x: number;
@@ -132,11 +74,8 @@ options:
   y: number;
 
 };
-
 - strict?: boolean; 调用需要选择器解析为单个元素。如果给定的选择器解析为多个元素，则调用将引发异常
-
 - timeout?: number; 命令最大执行超时时间
-
 - trial?: boolean; 仅进行元素操作校验，但不进行点击
 
 
@@ -155,12 +94,13 @@ options:
 ### dom.screenshot(sign,option)
   对指定元素进行截图
 
-  options:
- - fullPage? <boolean> 如果元素内有滚动条，可以设置此参数截取完整元素
- - mask? <sign[]> 在截图时可以配置忽略页面元素
- - path? <string> 截图图像存储路径
- - quality? <number> 图像的质量，介于 0-100 之间。不适用于png图像。
- - timeout? <number> 以毫秒为单位的最长时间,默认为 30 秒,传递0以禁用超时
+options:
+
+ - fullPage? `boolean` 如果元素内有滚动条，可以设置此参数截取完整元素
+ - mask? `sign[]` 在截图时可以配置忽略页面元素
+ - path? `string` 截图图像存储路径
+ - quality? `number` 图像的质量，介于 0-100 之间。不适用于png图像。
+ - timeout? `number` 以毫秒为单位的最长时间,默认为 30 秒,传递0以禁用超时
  
   ``` js
   await dom.screenshot('#main-chart',{path:'ack.jpg',fullPage:true})
@@ -184,10 +124,10 @@ options:
 ### dom.select(sign,{value?:string,label?:string,index?:number},options)
 
 options:
- - force? <boolean> Whether to bypass the actionability checks. Defaults to false.
- - noWaitAfter? <boolean> Actions that initiate navigations are waiting for these navigations to happen and for pages to start loading. You can opt out of waiting via setting this flag. You would only need this option in the exceptional cases such as navigating to inaccessible pages. Defaults to false.
- - strict? <boolean> When true, the call requires selector to resolve to a single element. If given selector resolves to more then one element, the call throws an exception. 
- - timeout? <number> Maximum time in milliseconds, defaults to 30 seconds, pass 0 to disable timeout.
+ - force? `boolean` Whether to bypass the actionability checks. Defaults to false.
+ - noWaitAfter? `boolean` Actions that initiate navigations are waiting for these navigations to happen and for pages to start loading. You can opt out of waiting via setting this flag. You would only need this option in the exceptional cases such as navigating to inaccessible pages. Defaults to false.
+ - strict? `boolean` When true, the call requires selector to resolve to a single element. If given selector resolves to more then one element, the call throws an exception. 
+ - timeout? number Maximum time in milliseconds, defaults to 30 seconds, pass 0 to disable timeout.
 
 ```js
 await dom.select("#id",{index:2})  // 选择下拉框第三个
@@ -197,27 +137,20 @@ await dom.select("#id",{label:"京东"})  // 选择 内容为京东的下啦
 ### dom.getAttributes(sign,attr)
   通过sign 和属性名获取对应内容
 
-   ``` js
+``` js
   var text =  await dom.getAttributes("#id",'innerText') // 获取文本内容
   var value =  await dom.getAttributes("#id",'value') // 获取input中的值
   var checked =  await dom.getAttributes("#id",'checked') // 检查复选框是否勾选
   var className =  await dom.getAttributes("#id",'class') // 获取当前操作dom的calss名称
-  ```
-
-<!-- ### dom.lineKeyOperation(key,rowKey,optKey)
-  根据关键字[key]和行标识[rowKey]找到目标行，并对行内目标[optKey]进行点击操作。
-  key:只支持元素内的纯文本。
-  rowKey:只支持行标识的class属性名。
-  optKey：支持操作目标元素内的纯文本或XPath或CSS选择器。
-  ``` js
-  await dom.lineKeyOperation('计划名称','el-table__row','删除') # 删除指定行
-   ``` -->
+```
 
 ### dom.hover(sign)
-  鼠标悬浮操作, 其中参数`sign`支持传递元素的`css选择器`、`xpath`、`id`。
-  ``` js
+
+鼠标悬浮操作, 其中参数`sign`支持传递元素的`css选择器`、`xpath`、`id`。
+
+``` js
   await dom.hover('#id') # 根据id定位元素，鼠标悬浮显示
-   ```
+```
 
 ### dom.tap(sign, options?: {
     force?: boolean | undefined
@@ -237,28 +170,7 @@ await dom.select("#id",{label:"京东"})  // 选择 内容为京东的下啦
   await dom.tap('#id') # 用于在h5中模拟按压
 ```
 
-## browser
 
-### browser.on(event:'request'| 'requestfaile' | 'requestfinished' | 'response',callback:Function)
-监听浏览器事件
-**注意:**:  监听事件是异步的且持续的,你不能期待再事件中抛出错误并中断执行。如果你需要同步使用[page.waitForResponse](https://dqa.jd.com/cherry/guide/api/instruct.html#page.waitForResponse)
-
-``` js
-await browser.on('request',(res)=>{
-    // 监听页面请求
-    console.log('url',res._initializer.url)
-})
-```
-
-### browser.route(url: string|RegExp,handler: ((route: Route, request: Request) => void), options?: {times?: number;})
-修改浏览器接口内容
-``` js
-// 修改页面的png图片为自定义图片
-await browser.route('**/*.{png}',(route)=>{
-    console.log('route',route)
-    route.continue({url:'http://storage.360buyimg.com/assert/icon.png'});
-})
-```
 
 ## page
 
@@ -326,11 +238,11 @@ await browser.route('**/*.{png}',(route)=>{
 
   options:
 
-  - referer `<string>`: Referer header value. 
+  - referer `string`: Referer header value. 
 
-  - timeout: `<number>` Maximum operation time in milliseconds, defaults to 30 seconds, pass 0 to disable timeout. 
+  - timeout: `number` Maximum operation time in milliseconds, defaults to 30 seconds, pass 0 to disable timeout. 
     
-  - waitUntil: `<"load"|"domcontentloaded"|"networkidle"|"commit">` When to consider operation succeeded, defaults to load. Events can be either:#
+  - waitUntil: `"load"|"domcontentloaded"|"networkidle"|"commit"` When to consider operation succeeded, defaults to load. Events can be either:#
 
     * 'domcontentloaded' - consider operation to be finished when the DOMContentLoaded event is fired.
 
@@ -384,15 +296,6 @@ await browser.route('**/*.{png}',(route)=>{
   await page.refresh() 
   ```
 
-<!-- ### page.close(index)
-  
-  按索引删除删除关闭页面从0开始，如删除第一个页面则为`deletePage(0)`,
-  当页面全部关闭时则会自动退出浏览器。
-
-  ``` js
-  await page.close(0)
-  ``` -->
-
 ### page.change(index | url)
   切换当前控制的页面, 1表示第一个。除了索引切换外还支持url模糊切换。
   注: 如果先前页面在iframe内，切换页面后会自动退出iframe。
@@ -419,13 +322,13 @@ await browser.route('**/*.{png}',(route)=>{
   屏幕截图, filePath表示截图存放路径。
   必须指明详细的文件地址，而非目录地址。
 
- - options:
+ <!-- - options:
  - fullPage? <boolean> 如果元素内有滚动条，可以设置此参数截取完整元素
  - mask? <sign[]> 在截图时可以配置忽略页面元素
  - path? <string> 截图图像存储路径,如已配置filePath则优先使用filePath
  - quality? <number> 图像的质量，介于 0-100 之间。不适用于png图像。
  - timeout? <number> 以毫秒为单位的最长时间,默认为 30 秒,传递0以禁用超时
- 
+  -->
 
   ``` js
   await page.screenshot('/src/screenshot/nihao.jpg') // 截图存取至该路径下
@@ -437,6 +340,85 @@ await browser.route('**/*.{png}',(route)=>{
   await page.screenshot(imgPath) 
   ```
 
+
+## cookies
+  适用于用户身份认证，以及验证码跳过。
+
+### cookies.setAll
+  说明: 设置所有cookies
+
+   type: "setAll",details参数：
+  | 名称        | 类型   |  默认值  | 说明  |
+  | --------   | --------  | --------  |  -------- |
+  | url        | string |  空     |必填，与cookie相关联的url|
+  | value       | string |  空     |必填，cookie值|
+  示例:
+  ```js
+  await cookies.setAll("https://www.baidu.com/","jZ0bGJpeXR3")
+  ```
+
+### cookies.set 
+  说明: 设置单个cookies 
+
+  type: "set"
+  
+  details参数:
+  | 名称        | 类型   |  默认值  | 说明  |
+  | --------   | --------  | --------  |  -------- |
+  | url        | string |  空     |必填，与cookie相关联的url|
+  | name       |  string|  空     |必填，cookie的名称|
+  | value      | string |  空     |必填，cookie的值|
+  | domain     | string |  空     |必填，cookie的域，使用前面的点进行标准化，以便适用于子域|
+  | path       | string |  空     |选填，cookie的路径|
+  | secure     | boolean| false   |选填，cookie是否标记为安全|
+  | httpOnly   | boolean| false   |选填，cookie是否仅标记为HTTP|
+  | expirationDate|double| 空  |选填，cookie的到期日期，表示自UNIX纪元以来的秒数|
+  | sameSite   | boolean|no_restriction|选填，应用于此cookie的相同站点策略,可选：unspecified,no_restriction,lax,strict|
+
+  注意: 新版不允许同时设置url和domain, 设置url后会自动生成对应的domain.
+  
+  如果你要设置单个cookie更推荐使用`domain` + `path` 设置, 而非`url`
+
+  示例:
+  ```js
+  await cookies.set([{
+    "domain": ".jd.com",
+    "name": "sso.jd.com",
+    "path": "/",
+    "value": "jZ0bGJpeXR3Z1FCeWRPclJ1LTRtOUI2YWR6fkpXfmxKSDU1Sk5LS3htS3dDS3RoRUFBQUFBJ",
+  }])
+  ```
+
+### cookies.clear 
+  说明: 清除浏览器cookie
+
+```js
+await cookies.clear()
+```
+
+
+## browser
+
+### browser.on(event:'request'| 'requestfaile' | 'requestfinished' | 'response',callback:Function)
+监听浏览器事件
+**注意:**:  监听事件是异步的且持续的,你不能期待再事件中抛出错误并中断执行。如果你需要同步使用[page.waitForResponse](https://dqa.jd.com/cherry/guide/api/instruct.html#page.waitForResponse)
+
+``` js
+await browser.on('request',(res)=>{
+    // 监听页面请求
+    console.log('url',res._initializer.url)
+})
+```
+
+### browser.route(url: string|RegExp,handler: ((route: Route, request: Request) => void), options?: {times?: number;})
+修改浏览器接口内容
+``` js
+// 修改页面的png图片为自定义图片
+await browser.route('**/*.{png}',(route)=>{
+    console.log('route',route)
+    route.continue({url:'http://storage.360buyimg.com/assert/icon.png'});
+})
+```
 
 ## img
 
