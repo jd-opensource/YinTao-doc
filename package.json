@@ -1,7 +1,7 @@
 {
-  "name": "octopus-doc",
+  "name": "cherry-doc",
   "version": "1.0.2",
-  "description": "octopus doc",
+  "description": "cherry doc",
   "main": "index.js",
   "author": "renran",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "build": "vitepress build docs"
   },
   "devDependencies": {
-    "vitepress": "^1.0.0-alpha.35",
+    "vitepress": "^1.0.0-beta.1",
     "vue": "^3.2.45"
   }
 }
