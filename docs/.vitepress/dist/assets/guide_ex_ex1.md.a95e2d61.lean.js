@@ -1,1 +1,0 @@
-import{_ as e,o as a,c as t,O as i}from"./chunks/framework.d524946d.js";const x=JSON.parse('{"title":"实现原理","description":"","frontmatter":{},"headers":[],"relativePath":"guide/ex/ex1.md","filePath":"guide/ex/ex1.md"}'),l={name:"guide/ex/ex1.md"},r=i("",5),o=[r];function s(n,_,c,d,h,u){return a(),t("div",null,o)}const f=e(l,[["render",s]]);export{x as __pageData,f as default};

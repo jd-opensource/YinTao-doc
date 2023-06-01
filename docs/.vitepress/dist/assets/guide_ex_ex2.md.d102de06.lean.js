@@ -1,1 +1,0 @@
-import{_ as a,o as e,c as t,O as o}from"./chunks/framework.d524946d.js";const x=JSON.parse('{"title":"特性","description":"","frontmatter":{},"headers":[],"relativePath":"guide/ex/ex2.md","filePath":"guide/ex/ex2.md"}'),r={name:"guide/ex/ex2.md"},i=o("",9),d=[i];function n(c,h,s,l,_,p){return e(),t("div",null,d)}const m=a(r,[["render",n]]);export{x as __pageData,m as default};
