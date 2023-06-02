@@ -208,7 +208,7 @@ await dom.select("#id",{label:"京东"})  // 选择 内容为京东的下啦
   ```
 
 ### page.waitForEvent(event:string)
-  等待页面事件，用于更新页面上下文内容，默认事件为framenavigated 页面重定向
+  等待页面事件，用于更新页面上下文内容，默认事件为`framenavigated`页面重定向
   更多event事件:
   - 'close': 页面被关闭时触发。
   - 'console': 当页面中有新的 console.log, console.debug, console.info, console.warn, 或 console.error 时触发。
@@ -219,6 +219,7 @@ await dom.select("#id",{label:"京东"})  // 选择 内容为京东的下啦
   - 'filechooser': 当页面需要选择文件时触发。
   - 'frameattached': 当页面附加子帧时触发。
   - 'framedetached': 当页面卸载子帧时触发。
+  - 'framenavigated': 当一个帧被导航到一个新的url时发出。
   - 'load': 当页面的 load 事件被触发时触发。即当所有资源（如图像和样式表）都已加载完成时触发。
   - 'navigation': 当页面控制权转移到另一个页面时触发。这通常意味着页面正在导航到新的 URL。
   - 'request': 当页面发出网络请求时触发。
