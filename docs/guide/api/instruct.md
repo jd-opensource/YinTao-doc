@@ -17,7 +17,9 @@
   判断传入的元素值是否存在，存在返回`true`，不存在返回`false`。
 
   ``` js
-  await dom.exist('#id')
+  const result =  await dom.exist('#id')
+  console.log('result:': result)
+  // >  'result:' true
   ```
 
 ### dom.dragTo(sign1,sign2)
@@ -205,6 +207,29 @@ await dom.select("#id",{label:"京东"})  // 选择 内容为京东的下啦
     await dom.fill("#id","123")
   ```
 
+### page.waitForEvent(event:string)
+  等待页面事件，用于更新页面上下文内容，默认事件为framenavigated 页面重定向
+  更多event事件:
+  - 'close': 页面被关闭时触发。
+  - 'console': 当页面中有新的 console.log, console.debug, console.info, console.warn, 或 console.error 时触发。
+  - 'crash': 当浏览器崩溃时触发。
+  - 'dialog': 当页面弹出对话框时触发。
+  - 'domcontentloaded': 当页面的 DOMContentLoaded 事件被触发时触发。即当初始 HTML 文档完全加载和解析完成后触发。
+  - 'download': 当页面开始下载文件时触发。
+  - 'filechooser': 当页面需要选择文件时触发。
+  - 'frameattached': 当页面附加子帧时触发。
+  - 'framedetached': 当页面卸载子帧时触发。
+  - 'load': 当页面的 load 事件被触发时触发。即当所有资源（如图像和样式表）都已加载完成时触发。
+  - 'navigation': 当页面控制权转移到另一个页面时触发。这通常意味着页面正在导航到新的 URL。
+  - 'request': 当页面发出网络请求时触发。
+  - 'response': 当页面接收到网络响应时触发。
+  - 'route': 当页面接收到网络请求时触发。此事件允许您拦截和修改请求的内容。
+  - 'websocket': 当页面连接到 WebSocket 时触发。
+  ``` js
+  // 登陆后页面会重建因此需要进行上下文转换
+  await Promise.all([dom.click("text=登 录"),page.waitForEvent('framenavigated')])
+  ```
+  
 ### page.waitForResponse
   等待页面的接口响应
   **提示:**:  这里使用Promise.all 是为了让两个操作同时进行，wait Response 基于事件监听,你不能等待监听而不去触发请求，这意味着什么都不会发生。
