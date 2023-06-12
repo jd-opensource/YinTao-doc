@@ -18,7 +18,7 @@
 
   ``` js
   const result =  await dom.exist('#id')
-  console.log('result:': result)
+  console.log('result:', result)
   // >  'result:' true
   ```
 
