@@ -28,6 +28,8 @@ jobs:
         run: npm install
       - name: 文档项目编译
         run: npm run build
+      - name: 查看编译产物
+        run: ls docs/.vitepress/dist
 # 部署
   deploy:
     permissions:
@@ -43,6 +45,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          BRANCH: gh-pages
-          ACCESS_TOKEN: ${{ secrets.GIT_TOKEN }}
-          FOLDER: docs/.vitepress/dist
+          branch: gh-pages
+          token: ${{ secrets.GIT_TOKEN }}
+          folder: docs/.vitepress/dist
