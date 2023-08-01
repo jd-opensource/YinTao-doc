@@ -2,7 +2,7 @@
 
 ## 概要
 
-  cherry 启动后默认占用本机`8888`端口,对外提供[websocket](https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket)服务。
+  YinTao 启动后默认占用本机`8888`端口,对外提供[websocket](https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket)服务。
 
   它更适合在网页端使用避免触发[CORS](https://wicg.github.io/cors-rfc1918)
 
@@ -13,7 +13,7 @@
   
   这意味着我们需要提供符合规范的数据才能被正确解析。
 
-  `cherry`内部采用`json`结构传递数据。
+  `YinTao`内部采用`json`结构传递数据。
   
   例:
 
@@ -34,8 +34,8 @@
 ## 快速接入
 
 在大多数情况下，我们只需要以函数式的方式去使用，
-因此cherry提供对外便捷的函数式api文件封装。
-[cherryLink](https://coding.jd.com/cherry/cherry/blob/master/packages/cherry-link/cherryLink.ts)
+因此YinTao提供对外便捷的函数式api文件封装。
+[YinTaoLink](https://coding.jd.com/YinTao/YinTao/blob/master/packages/YinTao-link/YinTaoLink.ts)
 文件内包含了详细的使用步骤，你只需要以工具类接入使用即可。
 如果你需要实现更高级的功能实现，可以按照下列数据格式自行接入。
 
@@ -48,7 +48,7 @@
   | 名称        | 类型   |  默认值  | 说明  |
   | --------   | --------  | --------  |  -------- |
   | script     | string |   空     |  执行的脚本|
-  | cookies    | [Cookie](https://dqa.jd.com/cherry/guide/data/cookie.html)[]    |  空     | 可接收cookie数组,用于初始化配置 |
+  | cookies    | [Cookie](https://dqa.jd.com/YinTao/guide/data/cookie.html)[]    |  空     | 可接收cookie数组,用于初始化配置 |
   | storage    | any    |  空     | 自定义参数仓库    |
   | hosts       | Map    | 空      | host信息 `{"域名":"解析IP地址"}`|  
 
@@ -91,9 +91,9 @@
   | --------   | --------  | --------  |  -------- |
   | url      | string| 空   |  录制时默认打开的地址   |
   | storage    | any    |  空     | 自定义参数仓库    |
-    | cookies    | [Cookie](https://dqa.jd.com/cherry/guide/data/cookie.html)[]    |  空     | 可接收cookie数组,用于初始化配置 |
-  | compatibility      | bool| 空   |  兼容模式,默认采用cherry浏览器,开启后将使用Chromium  |
-  | device    | string    |  空     | 模拟移动设备录制, 支持的字段参考[setDevice](https://coding.jd.com/cherry/core/blob/master/src/server/deviceDescriptorsSource.json) |
+    | cookies    | [Cookie](https://dqa.jd.com/YinTao/guide/data/cookie.html)[]    |  空     | 可接收cookie数组,用于初始化配置 |
+  | compatibility      | bool| 空   |  兼容模式,默认采用YinTao浏览器,开启后将使用Chromium  |
+  | device    | string    |  空     | 模拟移动设备录制, 支持的字段参考[setDevice](https://coding.jd.com/YinTao/core/blob/master/src/server/deviceDescriptorsSource.json) |
   | hosts       | Map    | 空      | host信息 `{"域名":"解析IP地址"}`|     
 
 **数据格式:**

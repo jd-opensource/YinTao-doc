@@ -1,9 +1,9 @@
 # 指令
 
 ## 说明
-  `cherry` 执行时主要通过解析指令代码执行, 这些内部指令在运行时以被预注册的`js`函数所替代,这意味着未知的指令无法得到正确的解析。
+  `YinTao` 执行时主要通过解析指令代码执行, 这些内部指令在运行时以被预注册的`js`函数所替代,这意味着未知的指令无法得到正确的解析。
 
-  同时我们可以使用原生`js`进行逻辑编写。部分指令生效会有一些限制，这取决于不同页面之间的上下文差异，`cherry`对这些工作进行了简化。
+  同时我们可以使用原生`js`进行逻辑编写。部分指令生效会有一些限制，这取决于不同页面之间的上下文差异，`YinTao`对这些工作进行了简化。
 
   执行时只存在一套上下文，即当前控制的页面。多页面直接操作必须进行手动切换(不建议使用多页面)。
 
@@ -118,9 +118,9 @@ options:
 ### dom.upload(id,filePath)
   上传文件, 控制input file 自动上传文件，需要传递input框的唯一id, 以及本地文件路径。
   ``` js
-  await dom.upload('#cherry','https://storage.360buyimg.com/assert/zi.jpg') // 上传远程文件
-  await dom.upload('#cherry','D:/cherry.txt') // 注意文件路径中使用\\或/，避免编码错误
-  await dom.upload('#cherry','D:/cherry.txt') // 注意文件路径中使用\\或/，避免编码错误
+  await dom.upload('#YinTao','https://storage.360buyimg.com/assert/zi.jpg') // 上传远程文件
+  await dom.upload('#YinTao','D:/YinTao.txt') // 注意文件路径中使用\\或/，避免编码错误
+  await dom.upload('#YinTao','D:/YinTao.txt') // 注意文件路径中使用\\或/，避免编码错误
   ```
 
 ### dom.select(sign,{value?:string,label?:string,index?:number},options)
@@ -187,7 +187,7 @@ await dom.select("#id",{label:"京东"})  // 选择 内容为京东的下啦
 ### page.setDevice(name:string)
 设置页面设备模拟, 注意需要在页面创建前设置，否则只在之后创建的页面生效.
 
-[更多可用设备名称](https://coding.jd.com/cherry/core/blob/master/src/server/deviceDescriptorsSource.json)
+[更多可用设备名称](https://coding.jd.com/YinTao/core/blob/master/src/server/deviceDescriptorsSource.json)
 
   ``` js
   await page.setDevice('iPhone 11') // 模拟iPhone 11 访问
@@ -427,7 +427,7 @@ await cookies.clear()
 
 ### browser.on(event:'request'| 'requestfaile' | 'requestfinished' | 'response',callback:Function)
 监听浏览器事件
-**注意:**:  监听事件是异步的且持续的,你不能期待再事件中抛出错误并中断执行。如果你需要同步使用[page.waitForResponse](https://dqa.jd.com/cherry/guide/api/instruct.html#page.waitForResponse)
+**注意:**:  监听事件是异步的且持续的,你不能期待再事件中抛出错误并中断执行。如果你需要同步使用[page.waitForResponse](https://dqa.jd.com/YinTao/guide/api/instruct.html#page.waitForResponse)
 
 ``` js
 await browser.on('request',(res)=>{
@@ -457,22 +457,22 @@ await img.click("/use/app/baidu_btn.jpg") // 使用本地图像点击
 ```
 
 ## keyboard
-### keyboard.press(<a href="/cherry/guide/api/apistruct.html">keyCode</a>)
+### keyboard.press(<a href="/YinTao/guide/api/apistruct.html">keyCode</a>)
   模拟点击键盘。
   ``` js
   await keyboard.press('KeyA')  // 模拟点击键盘a键
   ```
-### keyboard.down(<a href="/cherry/guide/api/apistruct.html">keyCode</a>)
+### keyboard.down(<a href="/YinTao/guide/api/apistruct.html">keyCode</a>)
   模拟按下键盘。
   ``` js
   await keyboard.down('ControlLeft')  // 模拟按下
   ```
-### keyboard.up(<a href="/cherry/guide/api/apistruct.html">keyCode</a>)
+### keyboard.up(<a href="/YinTao/guide/api/apistruct.html">keyCode</a>)
   模拟抬起键盘。
   ``` js
   await keyboard.up('ControlLeft')  // 模拟键盘抬起
   ```
-### keyboard.type(<a href="/cherry/guide/api/apistruct.html">keyCode</a>)
+### keyboard.type(<a href="/YinTao/guide/api/apistruct.html">keyCode</a>)
   模拟键盘输入。
   ``` js
   await keyboard.type('hello word')  // 模拟输入,等同于使用 await set()

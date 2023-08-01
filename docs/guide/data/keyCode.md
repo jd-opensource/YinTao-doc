@@ -1,6 +1,6 @@
 ## keyCode 
 键盘信息
-cherry驱动支持模拟键盘操作,支持的操作如下:
+YinTao驱动支持模拟键盘操作,支持的操作如下:
 ```js
   | '0'| '1'| '2'| '3'| '4'| '5'| '6'| '7'| '8'| '9'
   | 'Power'| 'Eject'| 'Abort'| 'Help'| 'Backspace'| 'Tab'| 'Numpad5'| 'NumpadEnter'

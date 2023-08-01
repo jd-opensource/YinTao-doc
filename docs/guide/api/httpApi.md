@@ -2,7 +2,7 @@
 
 ## 概要
 
-  `cherry` 启动后默认占用本机`8777`端口,对外提供`http`服务。
+  `YinTao` 启动后默认占用本机`8777`端口,对外提供`http`服务。
 
 ## 执行
 
@@ -21,7 +21,7 @@
   | headless   | boolean   |  fasle   | 无头模式，默认为显示界面运行，true开启无头运行  |
   | browser    | string    |  'chrome'     | 执行使用的浏览器支持 `chrome`、`firefox`、`webkit` |
   | hosts       | Map    | 空      | host信息 `{"域名":"解析IP地址"}`|  
-  | cookies    | [Cookie](https://dqa.jd.com/cherry/guide/data/cookie.html)[]    |  空     | 可接收cookie数组,用于初始化配置 |
+  | cookies    | [Cookie](https://dqa.jd.com/YinTao/guide/data/cookie.html)[]    |  空     | 可接收cookie数组,用于初始化配置 |
   | remoteReport | object    | 空      | 远程执行需要上报的地址|  
 
   remoteReport 类型:object:
@@ -30,7 +30,7 @@
   | result     | string   |   空      | 远程上传结果地址 |
   | log        | string   |    空     | 远程上传日志地址 |
   | image      | string   |    空     | 远程上传图片地址 |
-  | trace      | string   |    空     | 远程上传追踪地址,支持本地路径以及http地址。[问题追踪](https://dqa.jd.com/cherry/guide/course/trace.html) |
+  | trace      | string   |    空     | 远程上传追踪地址,支持本地路径以及http地址。[问题追踪](https://dqa.jd.com/YinTao/guide/course/trace.html) |
 
   请求示例:
 ``` js
@@ -95,10 +95,10 @@
   | 名称        | 类型   |  默认值  | 说明  |
   | --------   | --------  | --------  |  -------- |
   | url      | string| 空   |  录制时默认打开的地址   |
-  | compatibility      | bool| 空   |  兼容模式,默认采用cherry浏览器,开启后将使用Chromium  |
+  | compatibility      | bool| 空   |  兼容模式,默认采用YinTao浏览器,开启后将使用Chromium  |
   | storage    | any    |  空     | 自定义参数仓库    |
-   | cookies    | [Cookie](https://dqa.jd.com/cherry/guide/data/cookie.html)[]    |  空     | 可接收cookie数组,用于初始化配置 |
-  | device    | string    |  空     | 模拟移动设备录制, 支持的字段参考[setDevice](https://coding.jd.com/cherry/core/blob/master/src/server/deviceDescriptorsSource.json) |
+   | cookies    | [Cookie](https://dqa.jd.com/YinTao/guide/data/cookie.html)[]    |  空     | 可接收cookie数组,用于初始化配置 |
+  | device    | string    |  空     | 模拟移动设备录制, 支持的字段参考[setDevice](https://coding.jd.com/YinTao/core/blob/master/src/server/deviceDescriptorsSource.json) |
   | hosts       | Map    | 空      | host信息 `{"域名":"解析IP地址"}`|     
   
    请求示例:
@@ -164,7 +164,7 @@
 
 请求方式: `GET`
 
-说明: `调用后关闭cherry`
+说明: `调用后关闭YinTao`
 
 请求示例:
 ``` js

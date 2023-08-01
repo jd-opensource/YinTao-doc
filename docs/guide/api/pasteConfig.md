@@ -1,7 +1,7 @@
 # 粘贴板配置
 
 ## 介绍
-cherry 作为底层引擎，经常会在多个平台间使用，为了让用户能够更好的使用cherry功能，以及兼容一些平台实现的差异。
+YinTao 作为底层引擎，经常会在多个平台间使用，为了让用户能够更好的使用YinTao功能，以及兼容一些平台实现的差异。
 我们提供了通用的粘贴板配置模式。
 
 ## 原理
@@ -63,4 +63,4 @@ cherry 作为底层引擎，经常会在多个平台间使用，为了让用户�
 }
 ```
 
-**全部参数，参考[open-Api](https://dqa.jd.com/cherry/guide/api/httpApi.html)**
+**全部参数，参考[open-Api](https://dqa.jd.com/YinTao/guide/api/httpApi.html)**
