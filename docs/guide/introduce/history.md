@@ -29,10 +29,10 @@ const versions = [
     <span>版本描述:</span> <i>{{i.desc}}</i>
     </div>
     <span>win系统:</span>
-    <a :href="`http://storage.jd.local/assert/cherrySetup-${i.version}.exe`">cherry-{{i.version}}.exe</a>
+    <a :href="`http://storage.jd.local/assert/cherrySetup-${i.version}.exe`">YinTao-{{i.version}}.exe</a>
     <div>
         <span>mac系统:</span>
-        <a :href="`http://storage.jd.local/assert/cherry-${i.version}.dmg`">cherry-{{i.version}}.dmg</a>
+        <a :href="`http://storage.jd.local/assert/cherry-${i.version}.dmg`">YinTao-{{i.version}}.dmg</a>
     </div>
 </div>
 
