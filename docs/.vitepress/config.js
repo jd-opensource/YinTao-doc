@@ -1,5 +1,5 @@
 module.exports = {
-  title: "cherry 中文文档",
+  title: "yintao 中文文档",
   base: "",
   description: "Just playing around",
   head: [

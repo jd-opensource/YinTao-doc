@@ -13,9 +13,9 @@
 &ensp;&ensp;&ensp;&ensp; YinTao是一款开源的软件, 我们希望和用户一起分享,建设。
 如果你希望它变得更好，我们需要您的加入。
 
-- YinTao 客户端程序，提供上级通用包装器。 [YinTao-coding](https://coding.jd.com/YinTao/YinTao)
-- core  核心执行程序。 [core-coding](https://coding.jd.com/YinTao/core)
-- doc  YinTao使用文档 [doc-coding](https://coding.jd.com/YinTao/doc)
+- YinTao 客户端程序，提供上级通用包装器。 [YinTao](https://github.com/jd-opensource/YinTao)
+- core  核心执行程序。 [core]
+- doc  YinTao使用文档 [doc](https://github.com/jd-opensource/YinTao-doc)
  
 <a href="/YinTao/guide/introduce/download.html">前往下载</a>
 

@@ -187,7 +187,7 @@ await dom.select("#id",{label:"京东"})  // 选择 内容为京东的下啦
 ### page.setDevice(name:string)
 设置页面设备模拟, 注意需要在页面创建前设置，否则只在之后创建的页面生效.
 
-[更多可用设备名称](https://coding.jd.com/YinTao/core/blob/master/src/server/deviceDescriptorsSource.json)
+<!-- [更多可用设备名称](https://coding.jd.com/YinTao/core/blob/master/src/server/deviceDescriptorsSource.json) -->
 
   ``` js
   await page.setDevice('iPhone 11') // 模拟iPhone 11 访问

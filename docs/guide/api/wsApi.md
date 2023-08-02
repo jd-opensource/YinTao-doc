@@ -35,7 +35,7 @@
 
 在大多数情况下，我们只需要以函数式的方式去使用，
 因此YinTao提供对外便捷的函数式api文件封装。
-[YinTaoLink](https://coding.jd.com/YinTao/YinTao/blob/master/packages/YinTao-link/YinTaoLink.ts)
+<!-- [YinTaoLink](https://coding.jd.com/YinTao/YinTao/blob/master/packages/YinTao-link/YinTaoLink.ts) -->
 文件内包含了详细的使用步骤，你只需要以工具类接入使用即可。
 如果你需要实现更高级的功能实现，可以按照下列数据格式自行接入。
 
