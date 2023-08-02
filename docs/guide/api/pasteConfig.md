@@ -63,4 +63,4 @@ YinTao 作为底层引擎，经常会在多个平台间使用，为了让用户�
 }
 ```
 
-**全部参数，参考[open-Api](https://dqa.jd.com/YinTao/guide/api/httpApi.html)**
+**全部参数，参考[open-Api](https://yintao.jd.com/guide/api/httpApi.html)**
