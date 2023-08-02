@@ -24,8 +24,8 @@ module.exports = {
       {
         text: "相关服务",
         items: [{
-          text: "dqa",
-          link: "https://dqa.jd.com"
+          text: "github",
+          link: "https://github.com/jd-opensource/YinTao"
         }, ]
       }
     ],

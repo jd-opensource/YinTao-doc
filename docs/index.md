@@ -19,7 +19,6 @@
  
 <a href="/YinTao/guide/introduce/download.html">前往下载</a>
 
-咚咚交流群: 1024606726<br>
-负责人ERP: zhouyuan63<br>
+
 欢迎下载体验，提出宝贵意见<br>
 更多项目请查看相关服务
