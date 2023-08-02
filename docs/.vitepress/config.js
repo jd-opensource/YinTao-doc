@@ -1,6 +1,6 @@
 module.exports = {
   title: "cherry 中文文档",
-  base: "/cherry/",
+  base: "",
   description: "Just playing around",
   head: [
     ['link', {
