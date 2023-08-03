@@ -17,7 +17,7 @@
 - core  核心执行程序。 [core]
 - doc  YinTao使用文档 [doc](https://github.com/jd-opensource/YinTao-doc)
  
-<a href="/YinTao/guide/introduce/download.html">前往下载</a>
+<a href="/guide/introduce/download.html">前往下载</a>
 
 
 欢迎下载体验，提出宝贵意见<br>
