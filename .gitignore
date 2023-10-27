@@ -28,7 +28,7 @@ pnpm-debug.log*
 **/mochawesome-report
 
 docs/.vitepress/dist
-
+docs/.vitepress/cache
 
 package-lock.json
 yarn.lock

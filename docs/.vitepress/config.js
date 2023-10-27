@@ -2,6 +2,9 @@ module.exports = {
   title: "yintao 中文文档",
   base: "",
   description: "Just playing around",
+  markdown: {
+  
+  },
   head: [
     ['link', {
       rel: 'shortcut icon',
@@ -45,21 +48,62 @@ module.exports = {
       },
       {
         text: "api",
-        collapsable: false,
         items: [{
+            text: "协议",
+            collapsed: false,
             items: [
               {
                 text:"http",
-                link:"/guide/api/httpApi"
+                link:"/guide/api/httpApi",
               },
               {
                 text:"websockt",
                 link: "/guide/api/wsApi"
-              }
+              },
+             
             ]
           },
           {
             text: "指令",
+            collapsed: true,
+            items: [
+              {
+                text:"dom",
+                link:"/guide/instructs/dom",
+              },
+              {
+                text:"page",
+                link:"/guide/instructs/page",
+              },
+              {
+                text:"cookies",
+                link: "/guide/instructs/cookies"
+              },
+              {
+                text:"browser",
+                link: "/guide/instructs/browser"
+              },
+              {
+                text:"img",
+                link: "/guide/instructs/img"
+              },
+              {
+                text:"keyboard",
+                link: "/guide/instructs/keyboard"
+              },
+              {
+                text:"mouse",
+                link: "/guide/instructs/mouse"
+              },
+              {
+                text:"assert",
+                link: "/guide/instructs/assert"
+              },
+              {
+                text:"通用指令",
+                link: "/guide/instructs/global"
+              },
+            ],
             link: "/guide/api/instruct"
           },
           {
