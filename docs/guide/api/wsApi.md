@@ -93,7 +93,7 @@
   | storage    | any    |  空     | 自定义参数仓库    |
     | cookies    | [Cookie](https://dqa.jd.com/YinTao/guide/data/cookie.html)[]    |  空     | 可接收cookie数组,用于初始化配置 |
   | compatibility      | bool| 空   |  兼容模式,默认采用YinTao浏览器,开启后将使用Chromium  |
-  | device    | string    |  空     | 模拟移动设备录制, 支持的字段参考[setDevice](https://coding.jd.com/YinTao/core/blob/master/src/server/deviceDescriptorsSource.json) |
+  | device    | string    |  空     | 模拟移动设备录制, 支持的字段参考[setDevice](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json) |
   | hosts       | Map    | 空      | host信息 `{"域名":"解析IP地址"}`|     
 
 **数据格式:**
