@@ -30,8 +30,8 @@ await sleep(30000)
 
 await page.to('http://t.268xue.com/');
 // 获取第三方接口数据
-const apiData = await axios.get('http://YinTao.jd.com/ping')
-console.log('apiData',apiData.data) // 获取data数据
+const res = await axios.get('http://YinTao.jd.com/ping')
+console.log('res',res.data) // 获取data数据
 
 await sleep(2000)
 ```
