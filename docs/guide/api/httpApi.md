@@ -23,6 +23,7 @@
   | hosts       | Map    | 空      | host信息 `{"域名":"解析IP地址"}`|  
   | cookies    | [Cookie](https://dqa.jd.com/YinTao/guide/data/cookie.html)[]    |  空     | 可接收cookie数组,用于初始化配置 |
   | remoteReport | object    | 空      | 远程执行需要上报的地址|  
+  | audio | Audio    | 空      | 当需要录制视频时传递,默认不开启视频录制|  
 
   remoteReport 类型:object:
   | 名称        | 类型      |   默认值   |   说明     |
@@ -31,6 +32,16 @@
   | log        | string   |    空     | 远程上传日志地址 |
   | image      | string   |    空     | 远程上传图片地址 |
   | trace      | string   |    空     | 远程上传追踪地址,支持本地路径以及http地址。[问题追踪](https://dqa.jd.com/YinTao/guide/course/trace.html) |
+
+  Audio 类型:object:
+  | 名称        | 类型      |   默认值   |   说明     |
+  | --------   | --------  | --------  |  -------- |
+  | url     | string   |   空      | 视频存储地址，远程执行时只支持http远程上报地址 |
+  | size     | Object   |   空      | 调整录制时的分辨率 |
+  | -width     | Object   |   空      | 录制的宽度 |
+  | -heightt     | Object   |   空      | 录制的高度 |
+
+  当开始录制时，不要关闭page,否则将丢失关闭页面的录制内容。
 
   请求示例:
 ``` js
