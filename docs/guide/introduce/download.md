@@ -1,5 +1,5 @@
 ---
-version: 2.0.1
+version: 2.0.7
 editLink: true
 ---
 
@@ -10,9 +10,9 @@ editLink: true
 `YinTao` 提供安装包，双击即可完整一键下载。
 ## 下载地址
 
- <a style="display: inline-block; font-size: 1rem; color: rgb(255, 255, 255); background-color: rgb(62, 175, 124); padding: 0.4rem 1.2rem; border-radius: 4px; transition: background-color 0.1s ease 0s;:box-sizing: border-box; border-bottom: 1px solid rgb(56, 157, 112);" :href="'https://storage.jd.com/assert/cherry-' + $frontmatter.version + '.dmg'">YinTao-{{$frontmatter.version}} MAC下载</a>
+ <a style="display: inline-block; font-size: 1rem; color: rgb(255, 255, 255); background-color: rgb(62, 175, 124); padding: 0.4rem 1.2rem; border-radius: 4px; transition: background-color 0.1s ease 0s;:box-sizing: border-box; border-bottom: 1px solid rgb(56, 157, 112);" :href="'https://storage.jd.com/assert/yintao-' + $frontmatter.version + '.dmg'">YinTao-{{$frontmatter.version}} MAC下载</a>
 
- <a style="margin-top:0.2rem;display: inline-block; font-size: 1rem; color: rgb(255, 255, 255); background-color: rgb(62, 175, 124); padding: 0.4rem 1.2rem; border-radius: 4px; transition: background-color 0.1s ease 0s; box-sizing: border-box; border-bottom: 1px solid rgb(56, 157, 112);" :href='"https://storage.jd.com/assert/cherrySetup-" + $frontmatter.version + ".exe"'>YinTao-{{$frontmatter.version}} WINDOW下载</a>
+ <a style="margin-top:0.2rem;display: inline-block; font-size: 1rem; color: rgb(255, 255, 255); background-color: rgb(62, 175, 124); padding: 0.4rem 1.2rem; border-radius: 4px; transition: background-color 0.1s ease 0s; box-sizing: border-box; border-bottom: 1px solid rgb(56, 157, 112);" :href='"https://storage.jd.com/assert/YinTaoSetup-" + $frontmatter.version + ".exe"'>YinTao-{{$frontmatter.version}} WINDOW下载</a>
 
  [历史版本下载](./history)
 
