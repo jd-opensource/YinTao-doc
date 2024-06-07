@@ -6,7 +6,7 @@ const homePage = "https://4399.com" // 定义变量
 await page.create(homePage) // 使用变量打开页面
 await sleep(1000) // 固定等待
 await page.to(`https://baidu.com`) // 切换页面
-await assert.custom("#su","inputValue","百度一下",0) // 页面元素断言
+await assert.custom("#su","innerText","百度一下",0) // 页面元素断言
 await assert.location("https://www.baidu.com/") // 页面地址断言
 await assert.title("百度一下，你就知道") // 页面title 断言
 // 执行hover
