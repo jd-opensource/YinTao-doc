@@ -163,6 +163,10 @@ module.exports = {
           {
             text: "接口数据测试",
             link: "/guide/exam/apiHook"
+          },
+          {
+            text: "常见问题",
+            link: "/guide/exam/problem"
           }
         ]
       },
