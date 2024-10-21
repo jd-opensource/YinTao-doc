@@ -5,6 +5,12 @@
   执行指定`JavaScript`脚本, 这里执行脚本将在页面环境内执行，并且锁定在当前操作的页面对象中或`iframe`中。
   ``` js
   await execJavaScript(`alert('hello ,word !')`)
+
+  // 传递函数
+  await execJavaScript(() => {
+      console.log("page 123")
+  });
+  
   ```
   
 
