@@ -3,12 +3,17 @@
 
 ## browser.on(event:'request'| 'requestfaile' | 'requestfinished' | 'response',callback:Function)
 监听浏览器事件
-**注意:**:  监听事件是异步的且持续的,你不能期待再事件中抛出错误并中断执行。如果你需要同步使用[page.waitForResponse](https://dqa.jd.com/YinTao/guide/api/instruct.html#page.waitForResponse)
+**注意:**:  监听事件是异步的且持续的,你不能期待再事件中抛出错误并中断执行。[Response 结构参考](https://playwright.dev/docs/api/class-response#response-body)
 
 ``` js
 await browser.on('request',(res)=>{
     // 监听页面请求
     console.log('url',res._initializer.url)
+})
+
+await browser.on('response',async (res)=>{
+    // 监听页面请求
+    console.log('body:',await res.body())
 })
 ```
 
