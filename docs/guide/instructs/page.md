@@ -56,6 +56,14 @@
   ``` js
   // 登陆后页面会重建因此需要进行上下文转换
   await Promise.all([dom.click("text=登 录"),page.waitForEvent('framenavigated')])
+
+  // 下载文件时,需要指定路径否则不会实际存储
+  const downloadPromise = page.waitForEvent('download');
+  // 点击下载操作
+  await dom.click('/download_btn');
+  const download = await downloadPromise;
+  // 填写存储路径
+  await download.saveAs('/path/to/save/at/' + download.suggestedFilename());
   ```
   
 ## page.waitForResponse
